@@ -63,7 +63,9 @@ function Index() {
 
       <section className="mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
         <p className="font-mono-label mb-8 text-muted-foreground">
-          Index — {String(projects.length).padStart(2, "0")} Projects
+          <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">Index</span>
+          <span className="mx-2">—</span>
+          {String(projects.length).padStart(2, "0")} Projects
         </p>
         <h1 className="font-display text-[13vw] leading-[0.95] tracking-tight md:text-[9vw]">
           {["Selected", null, "work."].map((line, i) =>
