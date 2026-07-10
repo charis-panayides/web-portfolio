@@ -128,7 +128,7 @@ function Index() {
                         <span className="absolute -bottom-1 left-0 h-px w-0 bg-foreground transition-all duration-700 ease-out group-hover:w-full" />
                       </span>
                     </h2>
-                    <p className="mt-4 max-w-md text-sm text-muted-foreground md:text-base">
+                    <p className="font-editorial italic mt-4 max-w-md text-base text-muted-foreground md:text-lg">
                       {p.description}
                     </p>
                   </div>
