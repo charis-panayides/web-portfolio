@@ -6,6 +6,7 @@
 
 @theme inline {
   --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-editorial: "ABeeZee", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
