@@ -101,6 +101,19 @@
   text-transform: uppercase;
 }
 
+/* Layout guides — fixed grid lines behind everything, like a design canvas */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px;
+}
+
 /* Grain / visual noise overlay — fixed, subtle, non-interactive */
 body::before {
   content: "";
