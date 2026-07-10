@@ -46,7 +46,7 @@ function ProjectPage() {
   const next = projects[(idx + 1) % projects.length];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative z-10 min-h-screen text-foreground">
       <header className="mx-auto flex max-w-[1400px] items-baseline justify-between px-6 py-8 md:px-12 md:py-10">
         <Link to="/" className="font-display text-xl md:text-2xl">
           Charis Panayides
