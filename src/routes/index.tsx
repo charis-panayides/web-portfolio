@@ -67,7 +67,7 @@ function Index() {
           <span className="mx-2">—</span>
           {String(projects.length).padStart(2, "0")} Projects
         </p>
-        <h1 className="font-display text-[13vw] leading-[0.95] tracking-tight md:text-[9vw]">
+        <h1 className="font-editorial text-[13vw] leading-[0.95] tracking-tight md:text-[9vw]">
           {["Selected", null, "work."].map((line, i) =>
             line === null ? (
               <span key="mid" className="block overflow-hidden">
