@@ -62,7 +62,23 @@ function Index() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
+      <section className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 right-0 -z-10 h-[520px] w-[520px] rounded-full opacity-70 blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(circle at 30% 30%, #ffb199 0%, #ff6a88 35%, #a18cd1 70%, transparent 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-40 -left-24 -z-10 h-[420px] w-[420px] rounded-full opacity-50 blur-[120px]"
+          style={{
+            background:
+              "radial-gradient(circle, #a8edea 0%, #fed6e3 60%, transparent 100%)",
+          }}
+        />
         <p className="font-mono-label mb-8 text-muted-foreground">
           <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">Index</span>
           <span className="mx-2">—</span>
