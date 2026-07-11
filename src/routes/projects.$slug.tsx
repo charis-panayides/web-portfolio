@@ -103,7 +103,8 @@ function ProjectPage() {
           Desktop — 01
         </div>
         <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-          <div className="absolute inset-x-0 top-0 flex items-center gap-2 border-b border-hairline/60 px-4 py-3">
+          <LiveSitePreview url={project.website} label={project.websiteLabel} variant="desktop" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center gap-2 border-b border-hairline/60 bg-gradient-to-b from-background/80 to-transparent px-4 py-3">
             <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="h-2 w-2 rounded-full bg-hairline" />
@@ -111,14 +112,18 @@ function ProjectPage() {
               {project.websiteLabel}
             </span>
           </div>
-          <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
-            Desktop screenshot
-          </div>
         </div>
       </section>
 
       {/* Mobile screenshot */}
       <section className="mx-auto max-w-[1400px] px-6 pb-24 md:px-12 md:pb-40">
+        <div className="font-mono-label mb-6 text-muted-foreground">
+          Mobile — 02
+        </div>
+        <div className="flex justify-center">
+          <div className="relative aspect-[9/19] w-full max-w-[320px] overflow-hidden rounded-2xl bg-accent">
+            <LiveSitePreview url={project.website} label={project.websiteLabel} variant="mobile" />
+
         <div className="font-mono-label mb-6 text-muted-foreground">
           Mobile — 02
         </div>
