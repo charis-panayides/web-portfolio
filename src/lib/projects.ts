@@ -1,3 +1,8 @@
+import aktinaAsset from "@/assets/aktina.png.asset.json";
+import cyomtAsset from "@/assets/cyomt.png.asset.json";
+import miaforaAsset from "@/assets/miafora.png.asset.json";
+import viiibeAsset from "@/assets/viiibe.png.asset.json";
+
 export type Project = {
   slug: string;
   number: string;
@@ -9,6 +14,8 @@ export type Project = {
   websiteLabel: string;
   tools: string;
   closing: string;
+  image: string;
+  accent: string;
 };
 
 export const projects: Project[] = [
@@ -25,6 +32,8 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor, Figma, Rank Math",
     closing:
       "A calm, structured platform that lets students find the right course in seconds.",
+    image: aktinaAsset.url,
+    accent: "#e53935",
   },
   {
     slug: "cy-omt",
@@ -39,6 +48,8 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor, Figma, WPForms",
     closing:
       "A trustworthy home for a specialised clinical education program.",
+    image: cyomtAsset.url,
+    accent: "#f2994a",
   },
   {
     slug: "mia-fora",
@@ -53,6 +64,8 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor, Figma",
     closing:
       "A gentle, welcoming space online — as reassuring for parents as the school itself.",
+    image: miaforaAsset.url,
+    accent: "#5aa9e6",
   },
   {
     slug: "viiibe",
@@ -67,6 +80,8 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor, Figma",
     closing:
       "A quiet stage for architectural work — restraint, grid and generous whitespace.",
+    image: viiibeAsset.url,
+    accent: "#4a4a4a",
   },
 ];
 

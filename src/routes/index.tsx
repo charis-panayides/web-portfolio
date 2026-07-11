@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { projects } from "@/lib/projects";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { LiveSitePreview } from "@/components/LiveSitePreview";
 
 
 export const Route = createFileRoute("/")({
@@ -63,7 +62,23 @@ function Index() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
+      <section className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 right-0 -z-10 h-[520px] w-[520px] rounded-full opacity-70 blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(circle at 30% 30%, #ffb199 0%, #ff6a88 35%, #a18cd1 70%, transparent 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-40 -left-24 -z-10 h-[420px] w-[420px] rounded-full opacity-50 blur-[120px]"
+          style={{
+            background:
+              "radial-gradient(circle, #a8edea 0%, #fed6e3 60%, transparent 100%)",
+          }}
+        />
         <p className="font-mono-label mb-8 text-muted-foreground">
           <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">Index</span>
           <span className="mx-2">—</span>
@@ -138,9 +153,21 @@ function Index() {
 
                 <div className="col-span-12 md:col-span-6">
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-                    <LiveSitePreview url={p.website} label={p.websiteLabel} variant="desktop" />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute -inset-8 -z-10 opacity-60 blur-3xl transition-opacity duration-700 group-hover:opacity-90"
+                      style={{
+                        background: `radial-gradient(60% 60% at 50% 50%, ${p.accent}55, transparent 70%)`,
+                      }}
+                    />
+                    <img
+                      src={p.image}
+                      alt={`${p.title} — ${p.websiteLabel}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+                    />
                     <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center gap-2 bg-gradient-to-b from-background/80 to-transparent px-4 py-3">
-                      <span className="h-2 w-2 rounded-full bg-hairline" />
+                      <span className="h-2 w-2 rounded-full" style={{ background: p.accent }} />
                       <span className="h-2 w-2 rounded-full bg-hairline" />
                       <span className="h-2 w-2 rounded-full bg-hairline" />
                     </div>
@@ -182,7 +209,15 @@ function Index() {
         ))}
       </main>
 
-      <footer className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
+      <footer className="relative mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 right-0 -z-10 h-[380px] w-[380px] rounded-full opacity-50 blur-[100px]"
+          style={{
+            background:
+              "radial-gradient(circle, #fbc2eb 0%, #a6c1ee 60%, transparent 100%)",
+          }}
+        />
         <div>
           <div className="font-mono-label text-muted-foreground">Contact</div>
           <div className="mt-2 font-display text-3xl md:text-5xl">
