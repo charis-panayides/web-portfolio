@@ -209,7 +209,15 @@ function Index() {
         ))}
       </main>
 
-      <footer className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
+      <footer className="relative mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 right-0 -z-10 h-[380px] w-[380px] rounded-full opacity-50 blur-[100px]"
+          style={{
+            background:
+              "radial-gradient(circle, #fbc2eb 0%, #a6c1ee 60%, transparent 100%)",
+          }}
+        />
         <div>
           <div className="font-mono-label text-muted-foreground">Contact</div>
           <div className="mt-2 font-display text-3xl md:text-5xl">
