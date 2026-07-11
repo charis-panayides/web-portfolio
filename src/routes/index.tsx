@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { projects } from "@/lib/projects";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { LiveSitePreview } from "@/components/LiveSitePreview";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
