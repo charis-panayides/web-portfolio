@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, projects } from "@/lib/projects";
-import { LiveSitePreview } from "@/components/LiveSitePreview";
 
 
 export const Route = createFileRoute("/projects/$slug")({
