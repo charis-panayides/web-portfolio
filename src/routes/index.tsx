@@ -3,7 +3,6 @@ import { projects } from "@/lib/projects";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -62,23 +61,7 @@ function Index() {
         </div>
       </header>
 
-      <section className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 right-0 -z-10 h-[520px] w-[520px] rounded-full opacity-70 blur-[110px]"
-          style={{
-            background:
-              "radial-gradient(circle at 30% 30%, #ffb199 0%, #ff6a88 35%, #a18cd1 70%, transparent 100%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-40 -left-24 -z-10 h-[420px] w-[420px] rounded-full opacity-50 blur-[120px]"
-          style={{
-            background:
-              "radial-gradient(circle, #a8edea 0%, #fed6e3 60%, transparent 100%)",
-          }}
-        />
+      <section className="mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
         <p className="font-mono-label mb-8 text-muted-foreground">
           <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">Index</span>
           <span className="mx-2">—</span>
@@ -127,18 +110,18 @@ function Index() {
             transition={{ duration: 0.7, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
             className="group border-b border-hairline transition-colors duration-500 hover:bg-accent/30"
           >
-            <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
-              <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
-                <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
-                  {p.number}
-                </div>
+            <Link
+              to="/projects/$slug"
+              params={{ slug: p.slug }}
+              className="block"
+            >
+              <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
+                <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
+                  <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
+                    {p.number}
+                  </div>
 
-                <div className="col-span-12 md:col-span-5">
-                  <Link
-                    to="/projects/$slug"
-                    params={{ slug: p.slug }}
-                    className="block"
-                  >
+                  <div className="col-span-12 md:col-span-5">
                     <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
                       <span className="relative inline-block">
                         {p.title}
@@ -148,76 +131,54 @@ function Index() {
                     <p className="font-editorial italic mt-4 max-w-md text-base text-muted-foreground md:text-lg">
                       {p.description}
                     </p>
-                  </Link>
-                </div>
-
-                <div className="col-span-12 md:col-span-6">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute -inset-8 -z-10 opacity-60 blur-3xl transition-opacity duration-700 group-hover:opacity-90"
-                      style={{
-                        background: `radial-gradient(60% 60% at 50% 50%, ${p.accent}55, transparent 70%)`,
-                      }}
-                    />
-                    <img
-                      src={p.image}
-                      alt={`${p.title} — ${p.websiteLabel}`}
-                      loading="lazy"
-                      className="h-full w-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
-                    />
-                    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center gap-2 bg-gradient-to-b from-background/80 to-transparent px-4 py-3">
-                      <span className="h-2 w-2 rounded-full" style={{ background: p.accent }} />
-                      <span className="h-2 w-2 rounded-full bg-hairline" />
-                      <span className="h-2 w-2 rounded-full bg-hairline" />
-                    </div>
                   </div>
 
-                  <div className="mt-6 grid grid-cols-2 gap-6 text-sm md:grid-cols-4">
-                    <div>
-                      <div className="font-mono-label text-muted-foreground">Role</div>
-                      <div className="mt-1">{p.role.split(" / ")[0]}</div>
+                  <div className="col-span-12 md:col-span-6">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
+                      <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]">
+                        {p.websiteLabel}
+                      </div>
+                      <div className="absolute inset-x-0 top-0 flex items-center gap-2 px-4 py-3">
+                        <span className="h-2 w-2 rounded-full bg-hairline" />
+                        <span className="h-2 w-2 rounded-full bg-hairline" />
+                        <span className="h-2 w-2 rounded-full bg-hairline" />
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-mono-label text-muted-foreground">Year</div>
-                      <div className="mt-1">{p.year}</div>
-                    </div>
-                    <div className="col-span-2 flex items-end justify-end gap-6 md:col-span-2">
-                      <Link
-                        to="/projects/$slug"
-                        params={{ slug: p.slug }}
-                        className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm"
-                      >
-                        View Project
-                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
-                      </Link>
-                      <a
-                        href={p.website}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-                      >
-                        Visit Website ↗
-                      </a>
+
+                    <div className="mt-6 grid grid-cols-2 gap-6 text-sm md:grid-cols-4">
+                      <div>
+                        <div className="font-mono-label text-muted-foreground">Role</div>
+                        <div className="mt-1">{p.role.split(" / ")[0]}</div>
+                      </div>
+                      <div>
+                        <div className="font-mono-label text-muted-foreground">Year</div>
+                        <div className="mt-1">{p.year}</div>
+                      </div>
+                      <div className="col-span-2 flex items-end justify-end gap-6 md:col-span-2">
+                        <span className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm">
+                          View Project
+                          <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
+                        </span>
+                        <a
+                          href={p.website}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                        >
+                          Visit Website ↗
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
+            </Link>
           </motion.article>
         ))}
       </main>
 
-      <footer className="relative mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 right-0 -z-10 h-[380px] w-[380px] rounded-full opacity-50 blur-[100px]"
-          style={{
-            background:
-              "radial-gradient(circle, #fbc2eb 0%, #a6c1ee 60%, transparent 100%)",
-          }}
-        />
+      <footer className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
         <div>
           <div className="font-mono-label text-muted-foreground">Contact</div>
           <div className="mt-2 font-display text-3xl md:text-5xl">

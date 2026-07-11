@@ -1,7 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, projects } from "@/lib/projects";
 
-
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
     const project = getProject(params.slug);
@@ -97,30 +96,21 @@ function ProjectPage() {
       </section>
 
       {/* Desktop screenshot */}
-      <section className="relative mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-8 top-4 -z-10 h-[70%] opacity-60 blur-[100px]"
-          style={{
-            background: `radial-gradient(60% 60% at 50% 40%, ${project.accent}66, transparent 75%)`,
-          }}
-        />
+      <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
         <div className="font-mono-label mb-6 text-muted-foreground">
           Desktop — 01
         </div>
         <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-          <img
-            src={project.image}
-            alt={`${project.title} — desktop`}
-            className="h-full w-full object-cover object-top"
-          />
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center gap-2 border-b border-hairline/60 bg-gradient-to-b from-background/80 to-transparent px-4 py-3">
-            <span className="h-2 w-2 rounded-full" style={{ background: project.accent }} />
+          <div className="absolute inset-x-0 top-0 flex items-center gap-2 border-b border-hairline/60 px-4 py-3">
+            <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="ml-4 font-mono-label text-muted-foreground">
               {project.websiteLabel}
             </span>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
+            Desktop screenshot
           </div>
         </div>
       </section>
@@ -132,17 +122,12 @@ function ProjectPage() {
         </div>
         <div className="flex justify-center">
           <div className="relative aspect-[9/19] w-full max-w-[320px] overflow-hidden rounded-2xl bg-accent">
-            <img
-              src={project.image}
-              alt={`${project.title} — mobile`}
-              className="h-full w-full object-cover object-left-top"
-              style={{ objectPosition: "left top" }}
-            />
+            <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
+              Mobile screenshot
+            </div>
           </div>
         </div>
       </section>
-
-
 
       {/* Closing */}
       <section className="border-t border-hairline">
