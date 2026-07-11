@@ -112,18 +112,18 @@ function Index() {
             transition={{ duration: 0.7, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
             className="group border-b border-hairline transition-colors duration-500 hover:bg-accent/30"
           >
-            <Link
-              to="/projects/$slug"
-              params={{ slug: p.slug }}
-              className="block"
-            >
-              <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
-                <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
-                  <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
-                    {p.number}
-                  </div>
+            <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
+              <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
+                <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
+                  {p.number}
+                </div>
 
-                  <div className="col-span-12 md:col-span-5">
+                <div className="col-span-12 md:col-span-5">
+                  <Link
+                    to="/projects/$slug"
+                    params={{ slug: p.slug }}
+                    className="block"
+                  >
                     <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
                       <span className="relative inline-block">
                         {p.title}
@@ -133,49 +133,51 @@ function Index() {
                     <p className="font-editorial italic mt-4 max-w-md text-base text-muted-foreground md:text-lg">
                       {p.description}
                     </p>
+                  </Link>
+                </div>
+
+                <div className="col-span-12 md:col-span-6">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
+                    <LiveSitePreview url={p.website} label={p.websiteLabel} variant="desktop" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center gap-2 bg-gradient-to-b from-background/80 to-transparent px-4 py-3">
+                      <span className="h-2 w-2 rounded-full bg-hairline" />
+                      <span className="h-2 w-2 rounded-full bg-hairline" />
+                      <span className="h-2 w-2 rounded-full bg-hairline" />
+                    </div>
                   </div>
 
-                  <div className="col-span-12 md:col-span-6">
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-                      <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]">
-                        {p.websiteLabel}
-                      </div>
-                      <div className="absolute inset-x-0 top-0 flex items-center gap-2 px-4 py-3">
-                        <span className="h-2 w-2 rounded-full bg-hairline" />
-                        <span className="h-2 w-2 rounded-full bg-hairline" />
-                        <span className="h-2 w-2 rounded-full bg-hairline" />
-                      </div>
+                  <div className="mt-6 grid grid-cols-2 gap-6 text-sm md:grid-cols-4">
+                    <div>
+                      <div className="font-mono-label text-muted-foreground">Role</div>
+                      <div className="mt-1">{p.role.split(" / ")[0]}</div>
                     </div>
-
-                    <div className="mt-6 grid grid-cols-2 gap-6 text-sm md:grid-cols-4">
-                      <div>
-                        <div className="font-mono-label text-muted-foreground">Role</div>
-                        <div className="mt-1">{p.role.split(" / ")[0]}</div>
-                      </div>
-                      <div>
-                        <div className="font-mono-label text-muted-foreground">Year</div>
-                        <div className="mt-1">{p.year}</div>
-                      </div>
-                      <div className="col-span-2 flex items-end justify-end gap-6 md:col-span-2">
-                        <span className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm">
-                          View Project
-                          <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
-                        </span>
-                        <a
-                          href={p.website}
-                          target="_blank"
-                          rel="noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-                        >
-                          Visit Website ↗
-                        </a>
-                      </div>
+                    <div>
+                      <div className="font-mono-label text-muted-foreground">Year</div>
+                      <div className="mt-1">{p.year}</div>
+                    </div>
+                    <div className="col-span-2 flex items-end justify-end gap-6 md:col-span-2">
+                      <Link
+                        to="/projects/$slug"
+                        params={{ slug: p.slug }}
+                        className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm"
+                      >
+                        View Project
+                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
+                      </Link>
+                      <a
+                        href={p.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                      >
+                        Visit Website ↗
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
+
           </motion.article>
         ))}
       </main>
