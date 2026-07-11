@@ -123,18 +123,10 @@ function ProjectPage() {
         <div className="flex justify-center">
           <div className="relative aspect-[9/19] w-full max-w-[320px] overflow-hidden rounded-2xl bg-accent">
             <LiveSitePreview url={project.website} label={project.websiteLabel} variant="mobile" />
-
-        <div className="font-mono-label mb-6 text-muted-foreground">
-          Mobile — 02
-        </div>
-        <div className="flex justify-center">
-          <div className="relative aspect-[9/19] w-full max-w-[320px] overflow-hidden rounded-2xl bg-accent">
-            <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
-              Mobile screenshot
-            </div>
           </div>
         </div>
       </section>
+
 
       {/* Closing */}
       <section className="border-t border-hairline">
