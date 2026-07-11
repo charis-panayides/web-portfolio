@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, projects } from "@/lib/projects";
+import { LiveSitePreview } from "@/components/LiveSitePreview";
+
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -101,16 +103,14 @@ function ProjectPage() {
           Desktop — 01
         </div>
         <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-          <div className="absolute inset-x-0 top-0 flex items-center gap-2 border-b border-hairline/60 px-4 py-3">
+          <LiveSitePreview url={project.website} label={project.websiteLabel} variant="desktop" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center gap-2 border-b border-hairline/60 bg-gradient-to-b from-background/80 to-transparent px-4 py-3">
             <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="h-2 w-2 rounded-full bg-hairline" />
             <span className="ml-4 font-mono-label text-muted-foreground">
               {project.websiteLabel}
             </span>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
-            Desktop screenshot
           </div>
         </div>
       </section>
@@ -122,12 +122,11 @@ function ProjectPage() {
         </div>
         <div className="flex justify-center">
           <div className="relative aspect-[9/19] w-full max-w-[320px] overflow-hidden rounded-2xl bg-accent">
-            <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
-              Mobile screenshot
-            </div>
+            <LiveSitePreview url={project.website} label={project.websiteLabel} variant="mobile" />
           </div>
         </div>
       </section>
+
 
       {/* Closing */}
       <section className="border-t border-hairline">
