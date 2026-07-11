@@ -137,9 +137,21 @@ function Index() {
 
                 <div className="col-span-12 md:col-span-6">
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-                    <LiveSitePreview url={p.website} label={p.websiteLabel} variant="desktop" />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute -inset-8 -z-10 opacity-60 blur-3xl transition-opacity duration-700 group-hover:opacity-90"
+                      style={{
+                        background: `radial-gradient(60% 60% at 50% 50%, ${p.accent}55, transparent 70%)`,
+                      }}
+                    />
+                    <img
+                      src={p.image}
+                      alt={`${p.title} — ${p.websiteLabel}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+                    />
                     <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center gap-2 bg-gradient-to-b from-background/80 to-transparent px-4 py-3">
-                      <span className="h-2 w-2 rounded-full bg-hairline" />
+                      <span className="h-2 w-2 rounded-full" style={{ background: p.accent }} />
                       <span className="h-2 w-2 rounded-full bg-hairline" />
                       <span className="h-2 w-2 rounded-full bg-hairline" />
                     </div>
