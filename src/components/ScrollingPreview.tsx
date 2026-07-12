@@ -79,6 +79,14 @@ export function ScrollingPreview({
       )}
       aria-label={`Open ${alt} in a new tab`}
     >
+      {label ? (
+        <div className="flex items-center gap-2 border-b border-hairline/60 bg-background px-4 py-3">
+          <span className="h-2 w-2 rounded-full bg-hairline" />
+          <span className="h-2 w-2 rounded-full bg-hairline" />
+          <span className="h-2 w-2 rounded-full bg-hairline" />
+          <span className="ml-3 font-mono-label text-muted-foreground">{label}</span>
+        </div>
+      ) : null}
       <div ref={containerRef} className="relative aspect-[16/10] w-full overflow-hidden">
         <img
           ref={imgRef}
@@ -93,14 +101,7 @@ export function ScrollingPreview({
           draggable={false}
         />
       </div>
-      {label ? (
-        <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center gap-2 border-b border-hairline/60 bg-background/80 px-4 py-3 backdrop-blur-sm">
-          <span className="h-2 w-2 rounded-full bg-hairline" />
-          <span className="h-2 w-2 rounded-full bg-hairline" />
-          <span className="h-2 w-2 rounded-full bg-hairline" />
-          <span className="ml-3 font-mono-label text-muted-foreground">{label}</span>
-        </div>
-      ) : null}
     </a>
   );
 }
+
