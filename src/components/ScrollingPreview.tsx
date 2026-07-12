@@ -79,7 +79,7 @@ export function ScrollingPreview({
       )}
       aria-label={`Open ${alt} in a new tab`}
     >
-      <div ref={containerRef} className="relative h-[440px] w-full overflow-hidden md:h-[560px]">
+      <div ref={containerRef} className="relative aspect-[16/10] w-full overflow-hidden">
         <img
           ref={imgRef}
           src={src}
