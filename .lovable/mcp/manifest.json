@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "charis-portfolio-mcp",
+      "version": "0.1.0",
+      "title": "Charis Panayides Portfolio"
+    },
+    "tools": [
+      {
+        "name": "list_projects",
+        "title": "List portfolio projects",
+        "description": "List all web design projects in Charis Panayides' portfolio, including title, description, role, year, tools, and website URL.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_project",
+        "title": "Get portfolio project",
+        "description": "Get full details of a single portfolio project by its slug (e.g. 'aktina', 'cy-omt', 'mia-fora', 'viiibe').",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The project slug. Use list_projects to see all available slugs."
+            }
+          },
+          "required": [
+            "slug"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
