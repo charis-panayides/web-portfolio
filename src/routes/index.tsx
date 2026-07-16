@@ -143,6 +143,7 @@ function Index() {
                   <Link to="/projects/$slug" params={{ slug: p.slug }} className="block">
                     <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
                       <span className="relative inline-block">
+                        <span className="absolute -left-6 top-1/2 hidden h-2 w-2 -translate-y-1/2 -translate-x-2 bg-foreground opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100 md:block" />
                         {p.title}
                         <span className="absolute -bottom-1 left-0 h-px w-0 bg-foreground transition-all duration-700 ease-out group-hover:w-full" />
                       </span>
