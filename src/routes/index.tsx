@@ -84,22 +84,14 @@ function Index() {
           {["Selected", null, "work."].map((line, i) =>
             line === null ? (
               <span key="mid" className="block overflow-hidden">
-          <motion.span
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="block italic"
-          >
-            w
-            <span className="relative inline-block px-[0.1em]">
-              <span
-                className="absolute inset-0 -z-10 bg-burnt-orange"
-                aria-hidden="true"
-              />
-              eb
-            </span>
-            {" design"}
-          </motion.span>
+                <motion.span
+                  initial={{ y: "110%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  className="block italic"
+                >
+                  web design
+                </motion.span>
               </span>
             ) : (
               <span key={line} className="block overflow-hidden">
@@ -133,17 +125,14 @@ function Index() {
           >
             <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
               <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
-                <div className="col-span-12 md:col-span-1">
-                  <span className="inline-flex aspect-square h-8 items-center justify-center bg-foreground font-mono text-[0.65rem] font-medium text-background">
-                    {p.number}
-                  </span>
+                <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
+                  {p.number}
                 </div>
 
                 <div className="col-span-12 md:col-span-5">
                   <Link to="/projects/$slug" params={{ slug: p.slug }} className="block">
                     <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
                       <span className="relative inline-block">
-                        <span className="absolute -left-6 top-1/2 hidden h-2 w-2 -translate-y-1/2 -translate-x-2 bg-foreground opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100 md:block" />
                         {p.title}
                         <span className="absolute -bottom-1 left-0 h-px w-0 bg-foreground transition-all duration-700 ease-out group-hover:w-full" />
                       </span>
@@ -192,20 +181,18 @@ function Index() {
                       <Link
                         to="/projects/$slug"
                         params={{ slug: p.slug }}
-                        className="group/link relative inline-flex items-center gap-2 overflow-hidden border-b border-foreground pb-0.5 text-sm"
+                        className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm"
                       >
-                        <span className="absolute inset-y-0 left-0 -z-10 w-0 bg-foreground transition-all duration-500 ease-out group-hover/link:w-full" />
-                        <span className="relative transition-colors duration-300 group-hover/link:text-background">View Project</span>
-                        <span className="relative inline-block transition-transform duration-500 group-hover/link:translate-x-1 group-hover/link:text-background">→</span>
+                        View Project
+                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
                       </Link>
                       <a
                         href={p.website}
                         target="_blank"
                         rel="noreferrer"
-                        className="group/visit relative inline-block overflow-hidden text-sm text-muted-foreground underline-offset-4"
+                        className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
                       >
-                        <span className="absolute inset-0 -z-10 w-0 bg-foreground transition-all duration-500 ease-out group-hover/visit:w-full" />
-                        <span className="relative transition-colors duration-300 group-hover/visit:text-background">Visit Website ↗</span>
+                        Visit Website ↗
                       </a>
                     </div>
                   </div>
