@@ -133,8 +133,10 @@ function Index() {
           >
             <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
               <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
-                <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
-                  {p.number}
+                <div className="col-span-12 md:col-span-1">
+                  <span className="inline-flex aspect-square h-8 items-center justify-center bg-foreground font-mono text-[0.65rem] font-medium text-background">
+                    {p.number}
+                  </span>
                 </div>
 
                 <div className="col-span-12 md:col-span-5">
