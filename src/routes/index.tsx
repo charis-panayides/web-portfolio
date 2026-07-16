@@ -84,14 +84,22 @@ function Index() {
           {["Selected", null, "work."].map((line, i) =>
             line === null ? (
               <span key="mid" className="block overflow-hidden">
-                <motion.span
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                  className="block italic"
-                >
-                  web design
-                </motion.span>
+          <motion.span
+            initial={{ y: "110%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="block italic"
+          >
+            w
+            <span className="relative inline-block px-[0.1em]">
+              <span
+                className="absolute inset-0 -z-10 bg-burnt-orange"
+                aria-hidden="true"
+              />
+              eb
+            </span>
+            {" design"}
+          </motion.span>
               </span>
             ) : (
               <span key={line} className="block overflow-hidden">
