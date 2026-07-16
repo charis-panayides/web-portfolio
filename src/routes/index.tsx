@@ -192,18 +192,20 @@ function Index() {
                       <Link
                         to="/projects/$slug"
                         params={{ slug: p.slug }}
-                        className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm"
+                        className="group/link relative inline-flex items-center gap-2 overflow-hidden border-b border-foreground pb-0.5 text-sm"
                       >
-                        View Project
-                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
+                        <span className="absolute inset-y-0 left-0 -z-10 w-0 bg-foreground transition-all duration-500 ease-out group-hover/link:w-full" />
+                        <span className="relative transition-colors duration-300 group-hover/link:text-background">View Project</span>
+                        <span className="relative inline-block transition-transform duration-500 group-hover/link:translate-x-1 group-hover/link:text-background">→</span>
                       </Link>
                       <a
                         href={p.website}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                        className="group/visit relative inline-block overflow-hidden text-sm text-muted-foreground underline-offset-4"
                       >
-                        Visit Website ↗
+                        <span className="absolute inset-0 -z-10 w-0 bg-foreground transition-all duration-500 ease-out group-hover/visit:w-full" />
+                        <span className="relative transition-colors duration-300 group-hover/visit:text-background">Visit Website ↗</span>
                       </a>
                     </div>
                   </div>
