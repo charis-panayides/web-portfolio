@@ -136,7 +136,7 @@ function Index() {
               <span className="font-display text-2xl leading-none tracking-tight md:text-3xl">
                 C<span className="text-muted-foreground">.</span>P
               </span>
-              <span className="font-mono-label text-muted-foreground">Vol. 2024</span>
+              <span className="font-mono-label text-muted-foreground">Vol. {new Date().getFullYear()}</span>
             </div>
           </div>
         </motion.div>
