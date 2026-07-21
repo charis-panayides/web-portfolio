@@ -116,29 +116,14 @@ function Index() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mt-20 flex flex-col gap-6 border-t border-hairline pt-6 md:absolute md:bottom-24 md:right-12 md:mt-0 md:flex-row md:items-start md:gap-8 md:pt-6"
+          className="relative mt-20 md:absolute md:bottom-24 md:right-12 md:mt-0"
         >
-          <div className="flex flex-col gap-1 md:text-right">
-            <span className="font-mono-label text-muted-foreground">Location</span>
-            <span className="font-display text-lg leading-none md:text-xl">Nicosia, Cyprus</span>
-            <span className="font-mono-label text-muted-foreground">35.1856° N, 33.3823° E</span>
-          </div>
-          <div className="hidden h-12 w-px bg-hairline md:block" />
-          <div className="flex flex-col gap-4 md:items-end md:text-right">
-            <div className="flex items-center gap-2 md:justify-end">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-foreground" />
-              </span>
-              <span className="font-mono-label">Open for projects</span>
-            </div>
-            <span
-              className="font-display text-2xl leading-none tracking-tight md:text-3xl [writing-mode:vertical-rl] rotate-180"
-              aria-label="Charis Panayides"
-            >
-              Charis Panayides
-            </span>
-          </div>
+          <span
+            className="font-display text-2xl leading-none tracking-tight md:text-3xl [writing-mode:vertical-rl] rotate-180"
+            aria-label="Charis Panayides"
+          >
+            Charis Panayides
+          </span>
         </motion.div>
       </section>
 
