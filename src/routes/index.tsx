@@ -74,7 +74,7 @@ function Index() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
+      <section className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
         <p className="font-mono-label mb-8 text-muted-foreground">
           <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">Index</span>
           <span className="mx-2">—</span>
@@ -111,6 +111,35 @@ function Index() {
             )
           )}
         </h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mt-20 flex flex-col gap-6 border-t border-hairline pt-6 md:absolute md:bottom-24 md:right-12 md:mt-0 md:flex-row md:items-start md:gap-8 md:pt-6"
+        >
+          <div className="flex flex-col gap-1 md:text-right">
+            <span className="font-mono-label text-muted-foreground">Location</span>
+            <span className="font-display text-lg leading-none md:text-xl">Nicosia, Cyprus</span>
+            <span className="font-mono-label text-muted-foreground">35.1856° N, 33.3823° E</span>
+          </div>
+          <div className="hidden h-12 w-px bg-hairline md:block" />
+          <div className="flex flex-col gap-3 md:text-right">
+            <div className="flex items-center gap-2 md:justify-end">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-foreground" />
+              </span>
+              <span className="font-mono-label">Open for projects</span>
+            </div>
+            <div className="flex flex-col items-start gap-0.5 md:items-end">
+              <span className="font-display text-2xl leading-none tracking-tight md:text-3xl">
+                C<span className="text-muted-foreground">.</span>P
+              </span>
+              <span className="font-mono-label text-muted-foreground">Vol. {new Date().getFullYear()}</span>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       <main className="border-t border-hairline">
