@@ -124,7 +124,7 @@ function Index() {
             <span className="font-mono-label text-muted-foreground">35.1856° N, 33.3823° E</span>
           </div>
           <div className="hidden h-12 w-px bg-hairline md:block" />
-          <div className="flex flex-col gap-3 md:text-right">
+          <div className="flex flex-col gap-4 md:items-end md:text-right">
             <div className="flex items-center gap-2 md:justify-end">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-60" />
@@ -132,12 +132,12 @@ function Index() {
               </span>
               <span className="font-mono-label">Open for projects</span>
             </div>
-            <div className="flex flex-col items-start gap-0.5 md:items-end">
-              <span className="font-display text-2xl leading-none tracking-tight md:text-3xl">
-                C<span className="text-muted-foreground">.</span>P
-              </span>
-              <span className="font-mono-label text-muted-foreground">Vol. {new Date().getFullYear()}</span>
-            </div>
+            <span
+              className="font-display text-2xl leading-none tracking-tight md:text-3xl [writing-mode:vertical-rl] rotate-180"
+              aria-label="Charis Panayides"
+            >
+              Charis Panayides
+            </span>
           </div>
         </motion.div>
       </section>
