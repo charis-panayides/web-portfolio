@@ -3,18 +3,7 @@ import { projects } from "@/lib/projects";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { ScrollingPreview } from "@/components/ScrollingPreview";
-import aktinaAsset from "@/assets/aktina.png.asset.json";
-import cyOmtAsset from "@/assets/cy-omt-preview.asset.json";
-import miaForaAsset from "@/assets/mia-fora-preview.asset.json";
-import viiibeAsset from "@/assets/viiibe-preview.asset.json";
-
-const previewAssets: Record<string, string> = {
-  aktina: aktinaAsset.url,
-  "cy-omt": cyOmtAsset.url,
-  "mia-fora": miaForaAsset.url,
-  viiibe: viiibeAsset.url,
-};
-
+import { projectPreviews } from "@/lib/project-previews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +33,7 @@ function useCyprusTime() {
           timeZone: "Asia/Nicosia",
           hour: "2-digit",
           minute: "2-digit",
-        })
+        }),
       );
     tick();
     const id = setInterval(tick, 30000);
@@ -62,7 +51,15 @@ function Index() {
         <Link to="/" className="font-display text-xl md:text-2xl">
           Charis Panayides
         </Link>
-        <div className="flex items-center gap-6 font-mono-label text-muted-foreground">
+        <div className="flex items-center gap-5 font-mono-label text-muted-foreground md:gap-7">
+          <nav aria-label="Portfolio navigation" className="hidden items-center gap-5 lg:flex">
+            <a href="#main-content" className="transition-colors hover:text-foreground">
+              Work
+            </a>
+            <a href="#contact" className="transition-colors hover:text-foreground">
+              Contact
+            </a>
+          </nav>
           <span className="hidden sm:inline">Web Design — Cyprus</span>
           <span className="flex items-center gap-2">
             <span className="relative flex h-1.5 w-1.5">
@@ -76,7 +73,9 @@ function Index() {
 
       <section className="relative mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-12 md:pb-40 md:pt-32">
         <p className="font-mono-label mb-8 text-muted-foreground">
-          <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">Index</span>
+          <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">
+            Index
+          </span>
           <span className="mx-2">—</span>
           {String(projects.length).padStart(2, "0")} Projects
         </p>
@@ -108,9 +107,19 @@ function Index() {
                   {line}
                 </motion.span>
               </span>
-            )
+            ),
           )}
         </h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-12 max-w-xl text-base leading-relaxed text-muted-foreground md:mt-16 md:text-lg"
+        >
+          I design and build clear, characterful WordPress websites for education, culture and
+          independent organisations.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -127,7 +136,7 @@ function Index() {
         </motion.div>
       </section>
 
-      <main className="border-t border-hairline">
+      <main id="main-content" tabIndex={-1} className="scroll-mt-6 border-t border-hairline">
         {projects.map((p, idx) => (
           <motion.article
             key={p.slug}
@@ -158,9 +167,9 @@ function Index() {
                 </div>
 
                 <div className="col-span-12 md:col-span-6">
-                  {previewAssets[p.slug] ? (
+                  {projectPreviews[p.slug] ? (
                     <ScrollingPreview
-                      src={previewAssets[p.slug]}
+                      src={projectPreviews[p.slug]}
                       alt={p.title}
                       href={p.website}
                       label={p.websiteLabel}
@@ -198,7 +207,9 @@ function Index() {
                         className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm"
                       >
                         View Project
-                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
+                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">
+                          →
+                        </span>
                       </Link>
                       <a
                         href={p.website}
@@ -217,11 +228,30 @@ function Index() {
         ))}
       </main>
 
-      <footer className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
+      <footer
+        id="contact"
+        className="mx-auto flex max-w-[1400px] scroll-mt-6 flex-col gap-10 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24"
+      >
         <div>
           <div className="font-mono-label text-muted-foreground">Contact</div>
           <div className="mt-2 font-display text-3xl md:text-5xl">
             Let&apos;s make something quiet and useful.
+          </div>
+          <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+            <a
+              href="mailto:harris_panayides@outlook.com"
+              className="border-b border-foreground pb-0.5"
+            >
+              Email me ↗
+            </a>
+            <a
+              href="https://www.linkedin.com/in/charis-panayides-a57ba8254/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            >
+              LinkedIn ↗
+            </a>
           </div>
         </div>
         <div className="font-mono-label text-muted-foreground">
