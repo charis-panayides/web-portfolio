@@ -104,11 +104,33 @@ function ProjectPage() {
             <div className="font-mono-label mb-8 text-muted-foreground">
               Desktop presentation — 01
             </div>
-            <LaptopPreview
-              src={asset("aktina.png")}
-              alt="AKTINA Educational Center homepage shown inside a laptop"
-              url="https://aktina.com.cy/en/"
-            />
+            <div className="grid items-center gap-12 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <LaptopPreview
+                  src={asset("aktina.png")}
+                  alt="AKTINA Educational Center homepage shown inside a laptop"
+                />
+              </div>
+              <div className="space-y-8 md:col-span-3 md:col-start-10">
+                <div>
+                  <h2 className="font-display text-3xl">Platform overview</h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    A scalable educational platform organising courses,
+                    certifications and professional examinations across locations,
+                    schedules and pricing.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">Project scope</div>
+                  <ul className="case-list mt-4">
+                    <li>UX/UI design</li>
+                    <li>Content architecture</li>
+                    <li>WordPress development</li>
+                    <li>Custom CMS</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </section>
 
           <section className="border-y border-hairline bg-background/75">
@@ -146,9 +168,8 @@ function ProjectPage() {
             <div className="grid items-start gap-12 md:grid-cols-12">
               <div className="md:col-span-8">
                 <LaptopPreview
-                  src={asset("aktina-course.png")}
-                  alt="AKTINA Microsoft Azure AI Fundamentals course page shown inside a laptop"
-                  url="https://aktina.com.cy/en/courses/ai-900-microsoft-azure-ai-fundamentals-official-course/"
+                  src={asset("aktina-course-cism.png")}
+                  alt="AKTINA CISM course page shown inside a laptop"
                 />
               </div>
               <div className="space-y-8 md:col-span-3 md:col-start-10">
@@ -191,9 +212,8 @@ function ProjectPage() {
               </div>
               <div className="flex justify-center md:col-span-5 md:col-start-7">
                 <PhonePreview
-                  src={asset("aktina-mobile.png")}
+                  src={asset("aktina-mobile-clean.png")}
                   alt="Mobile version of the AKTINA Educational Center homepage"
-                  url="https://aktina.com.cy/en/"
                 />
               </div>
             </div>

@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 type PreviewProps = {
   src: string;
   alt: string;
-  url?: string;
   duration?: number;
 };
 
@@ -44,33 +43,12 @@ function MovingScreenshot({ src, alt, duration = 12 }: PreviewProps) {
   );
 }
 
-function LiveWebsite({
-  src,
-  alt,
-  url,
-  duration,
-}: PreviewProps) {
-  return (
-    <div className="relative h-full overflow-hidden bg-white">
-      <MovingScreenshot src={src} alt={alt} duration={duration} />
-      {url ? (
-        <iframe
-          src={url}
-          title={alt}
-          loading="lazy"
-          className="live-website-frame"
-        />
-      ) : null}
-    </div>
-  );
-}
-
-export function LaptopPreview({ src, alt, url }: PreviewProps) {
+export function LaptopPreview({ src, alt }: PreviewProps) {
   return (
     <figure className="laptop">
       <div className="laptop-screen">
         <div className="laptop-camera" />
-        <LiveWebsite src={src} alt={alt} url={url} duration={14} />
+        <MovingScreenshot src={src} alt={alt} duration={14} />
       </div>
       <div className="laptop-base">
         <div className="laptop-notch" />
@@ -80,12 +58,13 @@ export function LaptopPreview({ src, alt, url }: PreviewProps) {
   );
 }
 
-export function PhonePreview({ src, alt, url }: PreviewProps) {
+export function PhonePreview({ src, alt }: PreviewProps) {
   return (
     <figure className="phone">
       <div className="phone-speaker" />
-      <LiveWebsite src={src} alt={alt} url={url} duration={16} />
+      <MovingScreenshot src={src} alt={alt} duration={16} />
       <figcaption className="sr-only">{alt}</figcaption>
     </figure>
   );
 }
+
