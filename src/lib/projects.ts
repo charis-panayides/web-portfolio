@@ -17,14 +17,14 @@ export const projects: Project[] = [
     number: "01",
     title: "AKTINA Educational Center",
     description:
-      "Educational website for courses, exams and certifications — built for clarity across a wide catalogue of programs.",
-    role: "Web Design / WordPress Development / SEO / Content Structure",
-    year: "2024",
+      "An educational platform organising courses, certifications and professional examinations through a scalable content system.",
+    role: "UX/UI Design / WordPress Development / Content Architecture / Custom CMS",
+    year: "2025–2026",
     website: "https://aktina.com.cy",
     websiteLabel: "aktina.com.cy",
-    tools: "WordPress, Elementor, Figma, Rank Math",
+    tools: "WordPress, Elementor Pro, LearnPress, ACF, CPT UI, TablePress",
     closing:
-      "A calm, structured platform that lets students find the right course in seconds.",
+      "A structured and scalable educational platform that makes complex, interconnected information easier to explore and maintain.",
   },
   {
     slug: "cy-omt",

@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, projects } from "@/lib/projects";
+import { LaptopPreview, PhonePreview } from "@/components/DevicePreview";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -44,6 +45,8 @@ function ProjectPage() {
   const { project } = Route.useLoaderData();
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(idx + 1) % projects.length];
+  const isAktina = project.slug === "aktina";
+  const asset = (name: string) => `${import.meta.env.BASE_URL}projects/${name}`;
 
   return (
     <div className="relative z-10 min-h-screen text-foreground">
@@ -95,48 +98,162 @@ function ProjectPage() {
         </div>
       </section>
 
-      {/* Desktop screenshot */}
-      <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
-        <div className="font-mono-label mb-6 text-muted-foreground">
-          Desktop — 01
-        </div>
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
-          <div className="absolute inset-x-0 top-0 flex items-center gap-2 border-b border-hairline/60 px-4 py-3">
-            <span className="h-2 w-2 rounded-full bg-hairline" />
-            <span className="h-2 w-2 rounded-full bg-hairline" />
-            <span className="h-2 w-2 rounded-full bg-hairline" />
-            <span className="ml-4 font-mono-label text-muted-foreground">
-              {project.websiteLabel}
-            </span>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
-            Desktop screenshot
-          </div>
-        </div>
-      </section>
-
-      {/* Mobile screenshot */}
-      <section className="mx-auto max-w-[1400px] px-6 pb-24 md:px-12 md:pb-40">
-        <div className="font-mono-label mb-6 text-muted-foreground">
-          Mobile — 02
-        </div>
-        <div className="flex justify-center">
-          <div className="relative aspect-[9/19] w-full max-w-[320px] overflow-hidden rounded-2xl bg-accent">
-            <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
-              Mobile screenshot
+      {isAktina ? (
+        <>
+          <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Desktop presentation — 01
             </div>
-          </div>
-        </div>
-      </section>
+            <LaptopPreview
+              src={asset("aktina.png")}
+              alt="AKTINA Educational Center homepage shown inside a laptop"
+            />
+          </section>
 
-      {/* Closing */}
-      <section className="border-t border-hairline">
-        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
-          <p className="max-w-3xl font-display text-3xl leading-tight md:text-5xl">
-            {project.closing}
-          </p>
-        </div>
-      </section>
+          <section className="border-y border-hairline bg-background/75">
+            <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-20 md:grid-cols-12 md:px-12 md:py-28">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">The challenge — 02</div>
+                <h2 className="mt-5 font-display text-4xl leading-[1.04] md:text-5xl">
+                  Making a large educational catalogue feel clear.
+                </h2>
+              </div>
+              <div className="space-y-8 text-lg leading-relaxed md:col-span-6 md:col-start-7">
+                <p>
+                  AKTINA needed to organise a large amount of information covering
+                  courses, certifications, professional examinations, locations,
+                  schedules and pricing. The website needed to remain clear for
+                  visitors while also being manageable and scalable for the
+                  organisation.
+                </p>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">My approach</div>
+                  <p className="mt-3">
+                    I created a structured educational catalogue, established clear
+                    relationships between courses, certifications and examinations,
+                    and made complex information easier to explore.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Content system — 03
+            </div>
+            <div className="grid items-start gap-12 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <div className="browser-detail">
+                  <div className="browser-detail-bar">
+                    <span /><span /><span />
+                    <span className="ml-3 font-mono-label text-muted-foreground">
+                      aktina.com.cy / course
+                    </span>
+                  </div>
+                  <div className="browser-detail-viewport">
+                    <img
+                      src={asset("aktina-course.png")}
+                      alt="AKTINA Certified Ethical Hacker course page showing structured course information"
+                      className="w-full"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-8 md:col-span-3 md:col-start-10">
+                <div>
+                  <h2 className="font-display text-3xl">Designed around relationships</h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    Custom content relationships connect courses with relevant
+                    examinations and certifications. Course arrangements support
+                    different locations and pricing categories without duplicating
+                    information.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">Key functionality</div>
+                  <ul className="case-list mt-4">
+                    <li>Structured course catalogue</li>
+                    <li>Related exams and certifications</li>
+                    <li>Location-specific arrangements</li>
+                    <li>Reusable pricing information</li>
+                    <li>Custom CMS fields and shortcodes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-y border-hairline">
+            <div className="mx-auto grid max-w-[1400px] items-center gap-16 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">
+                  Responsive presentation — 04
+                </div>
+                <h2 className="mt-5 font-display text-4xl leading-tight md:text-5xl">
+                  The same hierarchy, adapted for smaller screens.
+                </h2>
+                <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
+                  Navigation, course discovery, news, categories and contact
+                  information remain accessible in a clear single-column flow.
+                </p>
+              </div>
+              <div className="flex justify-center md:col-span-5 md:col-start-7">
+                <PhonePreview
+                  src={asset("aktina-mobile.png")}
+                  alt="Mobile version of the AKTINA Educational Center homepage"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-3">
+                <div className="font-mono-label text-muted-foreground">Outcome — 05</div>
+              </div>
+              <div className="md:col-span-8 md:col-start-5">
+                <p className="font-display text-3xl leading-tight md:text-5xl">
+                  {project.closing}
+                </p>
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-10 inline-flex min-h-11 items-center border-b border-foreground text-base focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  Visit AKTINA website ↗
+                </a>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : (
+        <>
+          <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
+            <div className="font-mono-label mb-6 text-muted-foreground">Desktop — 01</div>
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-accent">
+              <div className="absolute inset-0 flex items-center justify-center font-mono-label text-muted-foreground">
+                Desktop screenshot
+              </div>
+            </div>
+          </section>
+          <section className="mx-auto max-w-[1400px] px-6 pb-24 md:px-12 md:pb-40">
+            <div className="font-mono-label mb-6 text-muted-foreground">Mobile — 02</div>
+            <div className="flex justify-center">
+              <div className="relative aspect-[9/19] w-full max-w-[320px] rounded-2xl bg-accent" />
+            </div>
+          </section>
+          <section className="border-t border-hairline">
+            <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+              <p className="max-w-3xl font-display text-3xl leading-tight md:text-5xl">
+                {project.closing}
+              </p>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Next */}
       <section className="border-t border-hairline">
