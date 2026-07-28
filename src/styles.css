@@ -60,12 +60,36 @@
   --ring: oklch(0.4 0.005 90);
 }
 
+.dark {
+  --background: #151513;
+  --foreground: #ebe8df;
+  --card: #1b1b18;
+  --card-foreground: #ebe8df;
+  --popover: #1b1b18;
+  --popover-foreground: #ebe8df;
+  --primary: #ebe8df;
+  --primary-foreground: #171715;
+  --secondary: #24231f;
+  --secondary-foreground: #ebe8df;
+  --muted: #24231f;
+  --muted-foreground: #aaa69b;
+  --accent: #2b2a26;
+  --accent-foreground: #f1eee6;
+  --destructive: #d75a2b;
+  --destructive-foreground: #fffaf2;
+  --border: #34332e;
+  --hairline: #414039;
+  --input: #3b3a34;
+  --ring: #cbc7bb;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
   }
 
   html {
+    background-color: var(--color-background);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -81,6 +105,72 @@
     background: var(--color-foreground);
     color: var(--color-background);
   }
+}
+
+.theme-toggle-shell {
+  position: fixed;
+  top: 1.55rem;
+  right: clamp(1.25rem, 2.5vw, 2.5rem);
+  z-index: 120;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid var(--color-hairline);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  color: var(--color-foreground);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-foreground);
+  background: var(--color-foreground);
+  color: var(--color-background);
+  transform: rotate(8deg);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-foreground);
+  outline-offset: 4px;
+}
+
+.theme-toggle svg {
+  grid-area: 1 / 1;
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.theme-toggle__moon {
+  opacity: 0;
+  transform: scale(0.65) rotate(-20deg);
+}
+
+.dark .theme-toggle__sun {
+  opacity: 0;
+  transform: scale(0.65) rotate(20deg);
+}
+
+.dark .theme-toggle__moon {
+  opacity: 1;
+  transform: scale(1) rotate(0);
 }
 
 @utility font-display {
@@ -165,6 +255,16 @@ body::before {
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.95 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-size: 220px 220px;
+}
+
+.dark body::before {
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  filter: invert(1);
+}
+
+.dark .project-page--viiibe {
+  --project-accent-color: rgb(0 0 0 / 0.55);
 }
 
 @keyframes marquee {
@@ -438,6 +538,10 @@ body::before {
   box-shadow: 0 22px 45px rgb(24 24 20 / 0.09);
 }
 
+.dark .browser-detail {
+  box-shadow: 0 22px 45px rgb(0 0 0 / 0.32);
+}
+
 .browser-detail-bar {
   display: flex;
   align-items: center;
@@ -470,6 +574,15 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-toggle svg {
+    transition: none;
+  }
+
+  .theme-toggle:hover {
+    transform: none;
+  }
+
   .device-scroll img {
     transform: none !important;
     transition: none !important;
@@ -502,6 +615,16 @@ body::before {
 }
 
 @media (max-width: 640px) {
+  .theme-toggle-shell {
+    top: 1.1rem;
+    right: 1rem;
+  }
+
+  .theme-toggle {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
   .project-page--aktina {
     --project-accent-top: 192px;
     --project-accent-left: 192px;
