@@ -221,11 +221,30 @@ body::before {
 
 .phone-pair .phone {
   width: min(100%, 270px);
+  aspect-ratio: 1 / 1.92;
   justify-self: center;
 }
 
 .phone-pair .phone:nth-child(2) {
   translate: 0 2.5rem;
+}
+
+.phone-pair .device-scroll {
+  background: #fff;
+}
+
+.phone-pair .device-scroll img,
+.phone-pair .device-scroll:hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+  transform: none;
+  transition: none;
+}
+
+.phone-pair .device-hint {
+  display: none;
 }
 
 .device-scroll img {
