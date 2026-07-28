@@ -252,11 +252,21 @@ body::before {
 }
 
 .cy-omt-phone-pair .phone:first-child {
-  width: min(100%, 255px);
+  width: min(100%, 285px);
 }
 
 .cy-omt-phone-pair .phone {
+  width: min(100%, 285px);
   aspect-ratio: 493 / 1069;
+}
+
+.cy-omt-phone-pair .phone:nth-child(2) {
+  translate: 0 1.25rem;
+}
+
+.cy-omt-phone-pair .device-scroll img,
+.cy-omt-phone-pair .device-scroll:hover img {
+  object-fit: cover;
 }
 
 .device-scroll img {
