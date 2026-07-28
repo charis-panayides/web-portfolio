@@ -46,6 +46,7 @@ function ProjectPage() {
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(idx + 1) % projects.length];
   const isAktina = project.slug === "aktina";
+  const isCyOmt = project.slug === "cy-omt";
   const asset = (name: string) => `${import.meta.env.BASE_URL}projects/${name}`;
 
   return (
@@ -261,6 +262,179 @@ function ProjectPage() {
                   className="mt-10 inline-flex min-h-11 items-center border-b border-foreground text-base focus-visible:outline-2 focus-visible:outline-offset-4"
                 >
                   Visit AKTINA website ↗
+                </a>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : isCyOmt ? (
+        <>
+          <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Programme overview — 01
+            </div>
+            <div className="grid items-center gap-12 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <LaptopPreview
+                  src={asset("cy-omt-home.png")}
+                  alt="CY-OMT programme homepage shown inside a laptop"
+                />
+              </div>
+              <div className="space-y-8 md:col-span-3 md:col-start-10">
+                <div>
+                  <h2 className="font-display text-3xl">Clinical education, clearly presented</h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    A professional education website presenting a specialised
+                    Orthopaedic Manual Therapy programme with clarity, credibility
+                    and structure.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">Project scope</div>
+                  <ul className="case-list mt-4">
+                    <li>Web design</li>
+                    <li>WordPress development</li>
+                    <li>Responsive design</li>
+                    <li>Content structure</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-y border-hairline bg-background/75">
+            <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-20 md:grid-cols-12 md:px-12 md:py-28">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">The challenge — 02</div>
+                <h2 className="mt-5 font-display text-4xl leading-[1.04] md:text-5xl">
+                  Making dense clinical information feel credible and approachable.
+                </h2>
+              </div>
+              <div className="space-y-8 text-lg leading-relaxed md:col-span-6 md:col-start-7">
+                <p>
+                  CY-OMT needed a professional website for its Orthopaedic Manual
+                  Therapy education programme. Detailed clinical and educational
+                  information had to remain authoritative without becoming difficult
+                  for prospective students to understand.
+                </p>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">My approach</div>
+                  <p className="mt-3">
+                    I used a calm clinical visual language, a clear page hierarchy
+                    and focused calls to action. Content is organised around the
+                    programme, instructors, applications, announcements and
+                    frequently asked questions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Programme structure — 03
+            </div>
+            <div className="grid items-center gap-12 md:grid-cols-12">
+              <div className="space-y-8 md:col-span-3">
+                <div>
+                  <h2 className="font-display text-3xl">A hierarchy built around trust</h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    Programme philosophy, teaching standards and practical
+                    advantages are separated into readable sections supported by
+                    authentic training photography.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">Technology</div>
+                  <ul className="case-list mt-4">
+                    <li>WordPress</li>
+                    <li>Elementor</li>
+                    <li>Jupiter X</li>
+                    <li>Responsive layouts</li>
+                    <li>Application forms</li>
+                    <li>Reliable email delivery</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="md:col-span-8 md:col-start-5">
+                <LaptopPreview
+                  src={asset("cy-omt-philosophy.png")}
+                  alt="CY-OMT programme philosophy page shown inside a laptop"
+                />
+              </div>
+            </div>
+
+            <div className="mt-24 grid items-center gap-12 border-t border-hairline pt-16 md:mt-32 md:grid-cols-12 md:pt-24">
+              <figure className="interface-detail md:col-span-4">
+                <img
+                  src={asset("cy-omt-mobile-menu.png")}
+                  alt="Expanded CY-OMT mobile navigation showing programme sections"
+                  className="block w-full"
+                  loading="lazy"
+                />
+              </figure>
+              <div className="md:col-span-5 md:col-start-7">
+                <div className="font-mono-label text-muted-foreground">
+                  Navigation detail — 04
+                </div>
+                <h2 className="mt-5 font-display text-3xl">
+                  Complex programme content, kept within reach.
+                </h2>
+                <p className="mt-5 leading-relaxed text-muted-foreground">
+                  The compact mobile navigation exposes the programme philosophy,
+                  characteristics, instructors, IFOMPT information, application
+                  forms, research activity and contact page without adding a heavy
+                  conventional menu.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-y border-hairline">
+            <div className="mx-auto grid max-w-[1400px] items-center gap-16 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">
+                  Responsive presentation — 05
+                </div>
+                <h2 className="mt-5 font-display text-4xl leading-tight md:text-5xl">
+                  Clear calls to action across smaller screens.
+                </h2>
+                <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
+                  Programme information, announcements, photography and application
+                  routes retain their hierarchy in a focused single-column layout.
+                </p>
+              </div>
+              <div className="phone-pair cy-omt-phone-pair md:col-span-6 md:col-start-7">
+                <PhonePreview
+                  src={asset("cy-omt-mobile-home.png")}
+                  alt="CY-OMT homepage displayed on a mobile device"
+                />
+                <PhonePreview
+                  src={asset("cy-omt-mobile-philosophy.png")}
+                  alt="CY-OMT programme philosophy page displayed on a mobile device"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-3">
+                <div className="font-mono-label text-muted-foreground">Outcome — 06</div>
+              </div>
+              <div className="md:col-span-8 md:col-start-5">
+                <p className="font-display text-3xl leading-tight md:text-5xl">
+                  A professional and accessible website that communicates the
+                  programme’s authority while making it easier for potential
+                  students to understand the course and apply.
+                </p>
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-10 inline-flex min-h-11 items-center border-b border-foreground text-base focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  Visit CY-OMT website ↗
                 </a>
               </div>
             </div>
