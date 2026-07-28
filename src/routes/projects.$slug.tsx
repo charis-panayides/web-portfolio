@@ -233,7 +233,7 @@ function ProjectPage() {
                   information remain accessible in a clear single-column flow.
                 </p>
               </div>
-              <div className="phone-pair md:col-span-6 md:col-start-7">
+              <div className="phone-pair aktina-phone-pair md:col-span-6 md:col-start-7">
                 <PhonePreview
                   src={asset("aktina-mobile-home.png")}
                   alt="AKTINA homepage displayed on a mobile device"

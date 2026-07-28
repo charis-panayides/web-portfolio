@@ -251,6 +251,12 @@ body::before {
   display: none;
 }
 
+.aktina-phone-pair .phone:nth-child(2) .device-scroll img,
+.aktina-phone-pair .phone:nth-child(2) .device-scroll:hover img {
+  transform: scale(1.055);
+  transform-origin: top center;
+}
+
 .cy-omt-phone-pair .phone:first-child {
   width: min(100%, 260px);
 }
