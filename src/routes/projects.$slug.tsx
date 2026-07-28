@@ -1,6 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProject, projects } from "@/lib/projects";
-import { LaptopPreview, PhonePreview } from "@/components/DevicePreview";
+import {
+  LaptopPreview,
+  LaptopVideoPreview,
+  PhonePreview,
+  PhoneVideoPreview,
+} from "@/components/DevicePreview";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -48,6 +53,7 @@ function ProjectPage() {
   const isAktina = project.slug === "aktina";
   const isCyOmt = project.slug === "cy-omt";
   const isMiaFora = project.slug === "mia-fora";
+  const isViiibe = project.slug === "viiibe";
   const asset = (name: string) => `${import.meta.env.BASE_URL}projects/${name}`;
 
   return (
@@ -607,6 +613,188 @@ function ProjectPage() {
                   className="mt-10 inline-flex min-h-11 items-center border-b border-foreground text-base focus-visible:outline-2 focus-visible:outline-offset-4"
                 >
                   Visit Μια φορά κι’ έναν καιρό ↗
+                </a>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : isViiibe ? (
+        <>
+          <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Studio introduction — 01
+            </div>
+            <div className="grid items-center gap-12 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <LaptopVideoPreview
+                  src={asset("viiibe-intro-desktop.mp4")}
+                  alt="VIIIBE Architects website introduction playing inside a laptop"
+                />
+              </div>
+              <div className="space-y-8 md:col-span-3 md:col-start-10">
+                <div>
+                  <h2 className="font-display text-3xl">
+                    Architecture given room to speak
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    A restrained bilingual portfolio built around space, imagery
+                    and carefully controlled typography.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">
+                    Project scope
+                  </div>
+                  <ul className="case-list mt-4">
+                    <li>Art direction</li>
+                    <li>Web design</li>
+                    <li>WordPress development</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-y border-hairline bg-background/75">
+            <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-20 md:grid-cols-12 md:px-12 md:py-28">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">
+                  The challenge — 02
+                </div>
+                <h2 className="mt-5 font-display text-4xl leading-[1.04] md:text-5xl">
+                  Creating a portfolio where the work remains primary.
+                </h2>
+              </div>
+              <div className="space-y-8 text-lg leading-relaxed md:col-span-6 md:col-start-7">
+                <p>
+                  VIIIBE Architects needed a restrained architecture portfolio
+                  where projects and imagery could carry the experience without
+                  visual noise or a conventional corporate presentation.
+                </p>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">
+                    My approach
+                  </div>
+                  <p className="mt-3">
+                    I used minimal typography, neutral colours, generous whitespace
+                    and a quiet project grid that reflects the architectural
+                    character of the studio.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Project index — 03
+            </div>
+            <div className="grid items-center gap-12 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <LaptopPreview
+                  src={asset("viiibe-projects.png")}
+                  alt="VIIIBE Architects project index shown inside a laptop"
+                />
+              </div>
+              <div className="space-y-8 md:col-span-3 md:col-start-10">
+                <div>
+                  <h2 className="font-display text-3xl">
+                    A disciplined visual index
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    Projects are presented as a measured grid of drawings with
+                    concise titles, locations and descriptions. The interface stays
+                    quiet so the studio’s visual material remains dominant.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">
+                    Design decisions
+                  </div>
+                  <ul className="case-list mt-4">
+                    <li>Image-led project grid</li>
+                    <li>Restrained typographic hierarchy</li>
+                    <li>Concise project metadata</li>
+                    <li>Generous negative space</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-y border-hairline">
+            <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+              <div className="font-mono-label mb-8 text-muted-foreground">
+                Project narrative — 04
+              </div>
+              <div className="grid items-center gap-12 md:grid-cols-12">
+                <div className="space-y-5 md:col-span-3">
+                  <h2 className="font-display text-3xl">
+                    Drawings and images form the narrative
+                  </h2>
+                  <p className="leading-relaxed text-muted-foreground">
+                    Individual projects use a long, deliberately paced sequence of
+                    plans, studies and architectural imagery. Each page feels more
+                    like a considered folio than a conventional gallery.
+                  </p>
+                </div>
+                <div className="md:col-span-8 md:col-start-5">
+                  <LaptopPreview
+                    src={asset("viiibe-family-house.png")}
+                    alt="VIIIBE Architects Family House case study shown inside a laptop"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div className="mx-auto grid max-w-[1400px] items-center gap-16 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">
+                  Responsive presentation — 05
+                </div>
+                <h2 className="mt-5 font-display text-4xl leading-tight md:text-5xl">
+                  The same restraint, preserved on smaller screens.
+                </h2>
+                <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
+                  The studio identity, project navigation and publication grid
+                  remain composed and legible in a focused mobile format.
+                </p>
+              </div>
+              <div className="phone-pair viiibe-phone-pair md:col-span-6 md:col-start-7">
+                <PhoneVideoPreview
+                  src={asset("viiibe-intro-mobile.mp4")}
+                  alt="VIIIBE Architects mobile introduction playing inside a phone"
+                />
+                <PhonePreview
+                  src={asset("viiibe-mobile-awards.png")}
+                  alt="VIIIBE Architects awards and publications page displayed on a mobile device"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section className="border-t border-hairline">
+            <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-3">
+                <div className="font-mono-label text-muted-foreground">
+                  Outcome — 06
+                </div>
+              </div>
+              <div className="md:col-span-8 md:col-start-5">
+                <p className="font-display text-3xl leading-tight md:text-5xl">
+                  An understated bilingual portfolio that allows the architecture
+                  to speak through images, space and carefully controlled
+                  typography.
+                </p>
+                <a
+                  href="https://viiibearchitects.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-10 inline-flex min-h-11 items-center border-b border-foreground text-base focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  Visit VIIIBE Architects ↗
                 </a>
               </div>
             </div>

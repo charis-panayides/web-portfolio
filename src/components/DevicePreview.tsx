@@ -6,6 +6,11 @@ type PreviewProps = {
   duration?: number;
 };
 
+type VideoPreviewProps = {
+  src: string;
+  alt: string;
+};
+
 function MovingScreenshot({ src, alt, duration = 12 }: PreviewProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -68,3 +73,72 @@ export function PhonePreview({ src, alt }: PreviewProps) {
   );
 }
 
+export function LaptopVideoPreview({ src, alt }: VideoPreviewProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const play = () => {
+    void videoRef.current?.play();
+  };
+
+  const reset = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.pause();
+    video.currentTime = 0;
+  };
+
+  return (
+    <figure
+      className="laptop video-preview"
+      onMouseEnter={play}
+      onMouseLeave={reset}
+      onFocus={play}
+      onBlur={reset}
+      tabIndex={0}
+    >
+      <div className="laptop-screen">
+        <div className="laptop-camera" />
+        <div className="device-video-shell">
+          <video
+            ref={videoRef}
+            src={src}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="device-video"
+            aria-label={alt}
+          />
+          <span className="device-hint video-hint" aria-hidden="true">
+            Hover to play
+          </span>
+        </div>
+      </div>
+      <div className="laptop-base">
+        <div className="laptop-notch" />
+      </div>
+      <figcaption className="sr-only">{alt}</figcaption>
+    </figure>
+  );
+}
+
+export function PhoneVideoPreview({ src, alt }: VideoPreviewProps) {
+  return (
+    <figure className="phone phone-video-preview">
+      <div className="phone-speaker" />
+      <div className="device-video-shell">
+        <video
+          src={src}
+          muted
+          loop
+          autoPlay
+          playsInline
+          preload="metadata"
+          className="device-video"
+          aria-label={alt}
+        />
+      </div>
+      <figcaption className="sr-only">{alt}</figcaption>
+    </figure>
+  );
+}
