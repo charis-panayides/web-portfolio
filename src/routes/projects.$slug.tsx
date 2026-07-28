@@ -47,6 +47,7 @@ function ProjectPage() {
   const next = projects[(idx + 1) % projects.length];
   const isAktina = project.slug === "aktina";
   const isCyOmt = project.slug === "cy-omt";
+  const isMiaFora = project.slug === "mia-fora";
   const asset = (name: string) => `${import.meta.env.BASE_URL}projects/${name}`;
 
   return (
@@ -410,6 +411,202 @@ function ProjectPage() {
                   className="mt-10 inline-flex min-h-11 items-center border-b border-foreground text-base focus-visible:outline-2 focus-visible:outline-offset-4"
                 >
                   Visit CY-OMT website ↗
+                </a>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : isMiaFora ? (
+        <>
+          <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Website overview — 01
+            </div>
+            <div className="grid items-center gap-12 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <LaptopPreview
+                  src={asset("mia-fora-home.png")}
+                  alt="Μια φορά κι’ έναν καιρό kindergarten homepage shown inside a laptop"
+                />
+              </div>
+              <div className="space-y-8 md:col-span-3 md:col-start-10">
+                <div>
+                  <h2 className="font-display text-3xl">
+                    A welcoming digital home for children and parents
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    A warm kindergarten website combining playful visuals with
+                    clear, parent-focused information.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">
+                    Project scope
+                  </div>
+                  <ul className="case-list mt-4">
+                    <li>Web design</li>
+                    <li>WordPress development</li>
+                    <li>Responsive design</li>
+                    <li>Search optimisation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-y border-hairline bg-background/75">
+            <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-20 md:grid-cols-12 md:px-12 md:py-28">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">
+                  The challenge — 02
+                </div>
+                <h2 className="mt-5 font-display text-4xl leading-[1.04] md:text-5xl">
+                  Playful enough for a kindergarten, clear enough for parents.
+                </h2>
+              </div>
+              <div className="space-y-8 text-lg leading-relaxed md:col-span-6 md:col-start-7">
+                <p>
+                  The website needed to express the warmth, creativity and
+                  character of the kindergarten while keeping practical
+                  information easy for parents to understand and find.
+                </p>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">
+                    My approach
+                  </div>
+                  <p className="mt-3">
+                    I paired friendly colours, children’s artwork and authentic
+                    photography with a calm page structure covering the school,
+                    classes, activities, enrolment and contact information.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+            <div className="font-mono-label mb-8 text-muted-foreground">
+              Story and character — 03
+            </div>
+            <div className="grid items-center gap-12 md:grid-cols-12">
+              <div className="space-y-8 md:col-span-3">
+                <div>
+                  <h2 className="font-display text-3xl">
+                    The school’s identity, told through real moments
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                    The profile page combines the kindergarten’s history,
+                    philosophy, team and environment without losing the gentle
+                    visual language established on the homepage.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono-label text-muted-foreground">
+                    Design decisions
+                  </div>
+                  <ul className="case-list mt-4">
+                    <li>Authentic school photography</li>
+                    <li>Watercolour visual language</li>
+                    <li>Parent-focused hierarchy</li>
+                    <li>Warm, accessible typography</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="md:col-span-8 md:col-start-5">
+                <LaptopPreview
+                  src={asset("mia-fora-profile.png")}
+                  alt="Μια φορά κι’ έναν καιρό school profile page shown inside a laptop"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section className="border-y border-hairline">
+            <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
+              <div className="font-mono-label mb-8 text-muted-foreground">
+                Content structure — 04
+              </div>
+              <div className="grid items-center gap-12 md:grid-cols-12">
+                <div className="md:col-span-8">
+                  <LaptopPreview
+                    src={asset("mia-fora-activities.png")}
+                    alt="Μια φορά κι’ έναν καιρό kindergarten activities page shown inside a laptop"
+                  />
+                </div>
+                <div className="space-y-8 md:col-span-3 md:col-start-10">
+                  <div>
+                    <h2 className="font-display text-3xl">
+                      Learning areas made easy to explore
+                    </h2>
+                    <p className="mt-4 leading-relaxed text-muted-foreground">
+                      The programme translates educational ideas into an
+                      approachable structure of themes, projects and learning
+                      areas, supported by photography from everyday school life.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="font-mono-label text-muted-foreground">
+                      Technology
+                    </div>
+                    <ul className="case-list mt-4">
+                      <li>WordPress</li>
+                      <li>Elementor</li>
+                      <li>Jupiter X</li>
+                      <li>Slider Revolution</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div className="mx-auto grid max-w-[1400px] items-center gap-16 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-4">
+                <div className="font-mono-label text-muted-foreground">
+                  Responsive presentation — 05
+                </div>
+                <h2 className="mt-5 font-display text-4xl leading-tight md:text-5xl">
+                  The same warmth, composed for smaller screens.
+                </h2>
+                <p className="mt-6 max-w-md leading-relaxed text-muted-foreground">
+                  Key information, photography and programme content remain
+                  readable and visually engaging in a focused mobile flow.
+                </p>
+              </div>
+              <div className="phone-pair mia-fora-phone-pair md:col-span-6 md:col-start-7">
+                <PhonePreview
+                  src={asset("mia-fora-mobile-classes.png")}
+                  alt="Kindergarten class information displayed on a mobile device"
+                />
+                <PhonePreview
+                  src={asset("mia-fora-mobile-profile.png")}
+                  alt="Kindergarten profile page displayed on a mobile device"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section className="border-t border-hairline">
+            <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
+              <div className="md:col-span-3">
+                <div className="font-mono-label text-muted-foreground">
+                  Outcome — 06
+                </div>
+              </div>
+              <div className="md:col-span-8 md:col-start-5">
+                <p className="font-display text-3xl leading-tight md:text-5xl">
+                  A welcoming website that communicates the character of the
+                  kindergarten while giving parents a simple path to the
+                  information they need.
+                </p>
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-10 inline-flex min-h-11 items-center border-b border-foreground text-base focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  Visit Μια φορά κι’ έναν καιρό ↗
                 </a>
               </div>
             </div>
