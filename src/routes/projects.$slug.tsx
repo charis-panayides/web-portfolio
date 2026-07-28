@@ -349,7 +349,6 @@ function ProjectPage() {
                   <ul className="case-list mt-4">
                     <li>WordPress</li>
                     <li>Elementor</li>
-                    <li>Jupiter X</li>
                     <li>Responsive layouts</li>
                     <li>Application forms</li>
                     <li>Reliable email delivery</li>
@@ -364,35 +363,13 @@ function ProjectPage() {
               </div>
             </div>
 
-            <div className="mt-24 grid items-center gap-12 border-t border-hairline pt-16 md:mt-32 md:grid-cols-12 md:pt-24">
-              <div className="static-phone-detail flex justify-center md:col-span-4">
-                <PhonePreview
-                  src={asset("cy-omt-mobile-menu.png")}
-                  alt="Expanded CY-OMT mobile navigation showing programme sections"
-                />
-              </div>
-              <div className="md:col-span-5 md:col-start-7">
-                <div className="font-mono-label text-muted-foreground">
-                  Navigation detail — 04
-                </div>
-                <h2 className="mt-5 font-display text-3xl">
-                  Complex programme content, kept within reach.
-                </h2>
-                <p className="mt-5 leading-relaxed text-muted-foreground">
-                  The compact mobile navigation exposes the programme philosophy,
-                  characteristics, instructors, IFOMPT information, application
-                  forms, research activity and contact page without adding a heavy
-                  conventional menu.
-                </p>
-              </div>
-            </div>
           </section>
 
           <section className="border-y border-hairline">
             <div className="mx-auto grid max-w-[1400px] items-center gap-16 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
               <div className="md:col-span-4">
                 <div className="font-mono-label text-muted-foreground">
-                  Responsive presentation — 05
+                  Responsive presentation — 04
                 </div>
                 <h2 className="mt-5 font-display text-4xl leading-tight md:text-5xl">
                   Clear calls to action across smaller screens.
@@ -418,7 +395,7 @@ function ProjectPage() {
           <section>
             <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
               <div className="md:col-span-3">
-                <div className="font-mono-label text-muted-foreground">Outcome — 06</div>
+                <div className="font-mono-label text-muted-foreground">Outcome — 05</div>
               </div>
               <div className="md:col-span-8 md:col-start-5">
                 <p className="font-display text-3xl leading-tight md:text-5xl">

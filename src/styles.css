@@ -256,26 +256,7 @@ body::before {
 }
 
 .cy-omt-phone-pair .phone {
-  aspect-ratio: 615 / 1035;
-}
-
-.static-phone-detail .phone {
-  width: min(70vw, 270px);
-  aspect-ratio: 615 / 1035;
-}
-
-.static-phone-detail .device-scroll img,
-.static-phone-detail .device-scroll:hover img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: top;
-  transform: none;
-  transition: none;
-}
-
-.static-phone-detail .device-hint {
-  display: none;
+  aspect-ratio: 493 / 1069;
 }
 
 .device-scroll img {
