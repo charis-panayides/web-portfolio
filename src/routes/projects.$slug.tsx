@@ -168,8 +168,8 @@ function ProjectPage() {
             <div className="grid items-start gap-12 md:grid-cols-12">
               <div className="md:col-span-8">
                 <LaptopPreview
-                  src={asset("aktina-course-cism.png")}
-                  alt="AKTINA CISM course page shown inside a laptop"
+                  src={asset("aktina-courses.png")}
+                  alt="AKTINA course catalogue shown inside a laptop"
                 />
               </div>
               <div className="space-y-8 md:col-span-3 md:col-start-10">
@@ -210,10 +210,14 @@ function ProjectPage() {
                   information remain accessible in a clear single-column flow.
                 </p>
               </div>
-              <div className="flex justify-center md:col-span-5 md:col-start-7">
+              <div className="phone-pair md:col-span-6 md:col-start-7">
                 <PhonePreview
-                  src={asset("aktina-mobile-clean.png")}
-                  alt="Mobile version of the AKTINA Educational Center homepage"
+                  src={asset("aktina-mobile-home.png")}
+                  alt="AKTINA homepage displayed on a mobile device"
+                />
+                <PhonePreview
+                  src={asset("aktina-mobile-course.png")}
+                  alt="AKTINA CISSP course page displayed on a mobile device"
                 />
               </div>
             </div>
