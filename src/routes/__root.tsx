@@ -102,8 +102,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "icon",
-        href: `${import.meta.env.BASE_URL}favicon.ico`,
-        type: "image/x-icon",
+        href: `${import.meta.env.BASE_URL}favicon.svg`,
+        type: "image/svg+xml",
       },
     ],
   }),
@@ -120,6 +120,9 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         {children}
         <Scripts />
       </body>

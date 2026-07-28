@@ -257,7 +257,7 @@ body::before {
 
 .cy-omt-phone-pair .phone {
   width: min(100%, 260px);
-  aspect-ratio: 9 / 18;
+  aspect-ratio: 9 / 16.5;
 }
 
 .cy-omt-phone-pair .phone:nth-child(2) {
