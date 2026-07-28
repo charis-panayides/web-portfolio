@@ -3,16 +3,12 @@ import { projects } from "@/lib/projects";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { ScrollingPreview } from "@/components/ScrollingPreview";
-import aktinaAsset from "@/assets/aktina.png.asset.json";
-import cyOmtAsset from "@/assets/cy-omt-preview.asset.json";
-import miaForaAsset from "@/assets/mia-fora-preview.asset.json";
-import viiibeAsset from "@/assets/viiibe-preview.asset.json";
+import { VideoPreview } from "@/components/VideoPreview";
 
 const previewAssets: Record<string, string> = {
-  aktina: aktinaAsset.url,
-  "cy-omt": cyOmtAsset.url,
-  "mia-fora": miaForaAsset.url,
-  viiibe: viiibeAsset.url,
+  aktina: `${import.meta.env.BASE_URL}projects/aktina.png`,
+  "cy-omt": `${import.meta.env.BASE_URL}projects/cy-omt.png`,
+  "mia-fora": `${import.meta.env.BASE_URL}projects/mia-fora.png`,
 };
 
 export const Route = createFileRoute("/")({
@@ -74,12 +70,6 @@ function Index() {
       </header>
 
       <section className="relative mx-auto min-h-[720px] max-w-[1400px] overflow-hidden px-6 pb-24 pt-16 md:min-h-[820px] md:px-12 md:pb-40 md:pt-32">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
-          <span className="absolute left-[32%] top-[64px] h-[128px] w-[192px] bg-[#d75a2b]/10 md:left-[42%] md:top-[128px] md:h-[192px] md:w-[256px]" />
-          <span className="absolute bottom-[192px] left-0 h-[64px] w-[128px] bg-[#d75a2b]/15 md:left-[64px] md:h-[128px] md:w-[192px]" />
-          <span className="absolute bottom-[64px] right-[64px] h-[64px] w-[128px] bg-[#d75a2b]/8 md:bottom-[128px] md:right-[128px] md:h-[128px] md:w-[256px]" />
-        </div>
-
         <p className="relative z-10 mb-8 font-mono-label text-muted-foreground">
           <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">
             Index
@@ -175,7 +165,14 @@ function Index() {
                 </div>
 
                 <div className="col-span-12 md:col-span-6">
-                  {previewAssets[p.slug] ? (
+                  {p.slug === "viiibe" ? (
+                    <VideoPreview
+                      src={`${import.meta.env.BASE_URL}projects/viiibe-intro.mp4`}
+                      poster={`${import.meta.env.BASE_URL}projects/viiibe-poster.jpg`}
+                      title={p.title}
+                      label={p.websiteLabel}
+                    />
+                  ) : previewAssets[p.slug] ? (
                     <ScrollingPreview
                       src={previewAssets[p.slug]}
                       alt={p.title}
