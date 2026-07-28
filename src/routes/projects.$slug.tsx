@@ -365,14 +365,12 @@ function ProjectPage() {
             </div>
 
             <div className="mt-24 grid items-center gap-12 border-t border-hairline pt-16 md:mt-32 md:grid-cols-12 md:pt-24">
-              <figure className="interface-detail md:col-span-4">
-                <img
+              <div className="static-phone-detail flex justify-center md:col-span-4">
+                <PhonePreview
                   src={asset("cy-omt-mobile-menu.png")}
                   alt="Expanded CY-OMT mobile navigation showing programme sections"
-                  className="block w-full"
-                  loading="lazy"
                 />
-              </figure>
+              </div>
               <div className="md:col-span-5 md:col-start-7">
                 <div className="font-mono-label text-muted-foreground">
                   Navigation detail — 04
