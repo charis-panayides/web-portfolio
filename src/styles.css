@@ -114,6 +114,46 @@ body::after {
   background-size: 64px 64px, 64px 64px;
 }
 
+/*
+ * One painted grid cell per case study. Positions are intentionally different,
+ * while the 64px dimensions keep every accent aligned to the existing grid.
+ */
+.project-page::before {
+  content: "";
+  position: fixed;
+  top: var(--project-accent-top);
+  left: var(--project-accent-left);
+  width: 64px;
+  height: 64px;
+  pointer-events: none;
+  z-index: -1;
+  background: var(--project-accent-color);
+}
+
+.project-page--aktina {
+  --project-accent-top: 192px;
+  --project-accent-left: calc(100% - 256px);
+  --project-accent-color: rgb(215 90 43 / 0.2);
+}
+
+.project-page--cy-omt {
+  --project-accent-top: 448px;
+  --project-accent-left: 128px;
+  --project-accent-color: rgb(73 126 166 / 0.2);
+}
+
+.project-page--mia-fora {
+  --project-accent-top: 256px;
+  --project-accent-left: calc(50% - 64px);
+  --project-accent-color: rgb(143 166 83 / 0.22);
+}
+
+.project-page--viiibe {
+  --project-accent-top: 576px;
+  --project-accent-left: calc(100% - 384px);
+  --project-accent-color: rgb(20 20 18 / 0.16);
+}
+
 /* Grain / visual noise overlay — fixed, subtle, non-interactive */
 body::before {
   content: "";
@@ -448,6 +488,26 @@ body::before {
 }
 
 @media (max-width: 640px) {
+  .project-page--aktina {
+    --project-accent-top: 192px;
+    --project-accent-left: calc(100% - 128px);
+  }
+
+  .project-page--cy-omt {
+    --project-accent-top: 384px;
+    --project-accent-left: 0px;
+  }
+
+  .project-page--mia-fora {
+    --project-accent-top: 256px;
+    --project-accent-left: 64px;
+  }
+
+  .project-page--viiibe {
+    --project-accent-top: 448px;
+    --project-accent-left: calc(100% - 64px);
+  }
+
   .phone-pair {
     gap: 0.6rem;
   }

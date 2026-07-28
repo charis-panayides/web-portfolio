@@ -57,7 +57,9 @@ function ProjectPage() {
   const asset = (name: string) => `${import.meta.env.BASE_URL}projects/${name}`;
 
   return (
-    <div className="relative z-10 min-h-screen text-foreground">
+    <div
+      className={`project-page project-page--${project.slug} relative z-10 min-h-screen text-foreground`}
+    >
       <header className="mx-auto flex max-w-[1400px] items-baseline justify-between px-6 py-8 md:px-12 md:py-10">
         <Link to="/" className="font-display text-xl md:text-2xl">
           Charis Panayides
@@ -637,8 +639,8 @@ function ProjectPage() {
                     Architecture given room to speak
                   </h2>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
-                    A restrained bilingual portfolio built around space, imagery
-                    and carefully controlled typography.
+                    A restrained architecture portfolio built around space,
+                    imagery and carefully controlled typography.
                   </p>
                 </div>
                 <div>
@@ -784,9 +786,8 @@ function ProjectPage() {
               </div>
               <div className="md:col-span-8 md:col-start-5">
                 <p className="font-display text-3xl leading-tight md:text-5xl">
-                  An understated bilingual portfolio that allows the architecture
-                  to speak through images, space and carefully controlled
-                  typography.
+                  An understated portfolio that allows the architecture to speak
+                  through images, space and carefully controlled typography.
                 </p>
                 <a
                   href="https://viiibearchitects.com/"
