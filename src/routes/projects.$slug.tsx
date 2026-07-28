@@ -194,13 +194,35 @@ function ProjectPage() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-24 border-t border-hairline pt-16 md:mt-32 md:pt-24">
+              <div className="font-mono-label mb-8 text-muted-foreground">
+                Course detail — 04
+              </div>
+              <div className="grid items-center gap-12 md:grid-cols-12">
+                <div className="space-y-5 md:col-span-3">
+                  <h2 className="font-display text-3xl">From catalogue to course detail</h2>
+                  <p className="leading-relaxed text-muted-foreground">
+                    Individual course pages bring the programme overview,
+                    arrangements, cost, certification links and registration
+                    actions into one consistent structure.
+                  </p>
+                </div>
+                <div className="md:col-span-8 md:col-start-5">
+                  <LaptopPreview
+                    src={asset("aktina-course-cism.png")}
+                    alt="AKTINA CISM individual course page shown inside a laptop"
+                  />
+                </div>
+              </div>
+            </div>
           </section>
 
           <section className="border-y border-hairline">
             <div className="mx-auto grid max-w-[1400px] items-center gap-16 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
               <div className="md:col-span-4">
                 <div className="font-mono-label text-muted-foreground">
-                  Responsive presentation — 04
+                  Responsive presentation — 05
                 </div>
                 <h2 className="mt-5 font-display text-4xl leading-tight md:text-5xl">
                   The same hierarchy, adapted for smaller screens.
@@ -226,7 +248,7 @@ function ProjectPage() {
           <section>
             <div className="mx-auto grid max-w-[1400px] gap-12 px-6 py-20 md:grid-cols-12 md:px-12 md:py-32">
               <div className="md:col-span-3">
-                <div className="font-mono-label text-muted-foreground">Outcome — 05</div>
+                <div className="font-mono-label text-muted-foreground">Outcome — 06</div>
               </div>
               <div className="md:col-span-8 md:col-start-5">
                 <p className="font-display text-3xl leading-tight md:text-5xl">

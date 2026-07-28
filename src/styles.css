@@ -225,6 +225,10 @@ body::before {
   justify-self: center;
 }
 
+.phone-pair .phone:first-child {
+  width: min(85%, 230px);
+}
+
 .phone-pair .phone:nth-child(2) {
   translate: 0 2.5rem;
 }
