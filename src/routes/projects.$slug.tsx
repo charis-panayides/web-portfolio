@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getProject, projects } from "@/lib/projects";
-import { ScrollingPreview } from "@/components/ScrollingPreview";
+import { CaseStudyMedia } from "@/components/CaseStudyMedia";
 import { projectPreviews } from "@/lib/project-previews";
+import { getProject, projects } from "@/lib/projects";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -9,165 +9,195 @@ export const Route = createFileRoute("/projects/$slug")({
     if (!project) throw notFound();
     return { project };
   },
-  head: ({ loaderData }) => {
-    if (!loaderData) {
-      return {
-        meta: [
-          { title: "Project not found — Charis Panayides" },
-          { name: "robots", content: "noindex" },
-        ],
-      };
-    }
-    const { project } = loaderData;
-    return {
-      meta: [
-        { title: `${project.title} — Charis Panayides` },
-        { name: "description", content: project.description },
-        { property: "og:title", content: `${project.title} — Charis Panayides` },
-        { property: "og:description", content: project.description },
-      ],
-    };
-  },
+  head: ({ loaderData }) => ({
+    meta: loaderData
+      ? [
+          { title: `${loaderData.project.title} — Charis Panayides` },
+          { name: "description", content: loaderData.project.description },
+        ]
+      : [{ title: "Project not found — Charis Panayides" }],
+  }),
   component: ProjectPage,
-  notFoundComponent: () => (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="text-center">
-        <div className="font-mono-label text-muted-foreground">404</div>
-        <h1 className="mt-2 font-display text-4xl">Project not found</h1>
-        <Link to="/" className="mt-6 inline-block border-b border-foreground pb-0.5">
-          ← Back to work
-        </Link>
-      </div>
-    </div>
-  ),
 });
+
+function TextList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-5 space-y-3">
+      {items.map((item) => (
+        <li key={item} className="flex gap-3 leading-relaxed">
+          <span aria-hidden="true">—</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function ProjectPage() {
   const { project } = Route.useLoaderData();
-  const idx = projects.findIndex((p) => p.slug === project.slug);
-  const next = projects[(idx + 1) % projects.length];
-  const preview = projectPreviews[project.slug];
+  const index = projects.findIndex((item) => item.slug === project.slug);
+  const previous = projects[(index - 1 + projects.length) % projects.length];
+  const next = projects[(index + 1) % projects.length];
 
   return (
     <div className="relative z-10 min-h-screen text-foreground">
-      <header className="mx-auto flex max-w-[1400px] items-baseline justify-between px-6 py-8 md:px-12 md:py-10">
+      <header className="mx-auto flex max-w-[1400px] items-baseline justify-between gap-6 px-6 py-8 md:px-12 md:py-10">
         <Link to="/" className="font-display text-xl md:text-2xl">
           Charis Panayides
         </Link>
-        <Link to="/" className="font-mono-label text-muted-foreground hover:text-foreground">
-          ← Index
-        </Link>
+        <nav aria-label="Case study navigation" className="flex gap-5 font-mono-label">
+          <Link to="/" hash="work" className="editorial-link">
+            Work
+          </Link>
+          <Link to="/" hash="contact" className="editorial-link">
+            Contact
+          </Link>
+        </nav>
       </header>
 
-      <main id="main-content" tabIndex={-1}>
-        {/* Title block */}
+      <main id="main-content">
         <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-12 md:px-12 md:pb-24 md:pt-20">
-          <div className="font-mono-label mb-8 text-muted-foreground">
+          <p className="font-mono-label text-muted-foreground">
             Project {project.number} / {project.year}
-          </div>
-          <h1 className="font-display text-[11vw] leading-[0.95] md:text-[7vw]">{project.title}</h1>
+          </p>
+          <h1 className="mt-7 max-w-6xl font-display text-[14vw] leading-[0.9] sm:text-[10vw] md:text-[7vw]">
+            {project.title}
+          </h1>
+          <p className="mt-10 max-w-3xl font-editorial text-xl leading-relaxed text-muted-foreground md:text-2xl">
+            {project.description}
+          </p>
         </section>
 
-        {/* Meta grid */}
-        <section className="border-y border-hairline">
-          <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-8 px-6 py-10 md:grid-cols-4 md:gap-6 md:px-12 md:py-12">
+        <section aria-label="Project information" className="border-y border-hairline">
+          <dl className="mx-auto grid max-w-[1400px] gap-8 px-6 py-10 md:grid-cols-4 md:px-12 md:py-14">
             <div>
-              <div className="font-mono-label text-muted-foreground">About</div>
-              <p className="mt-2 text-base">{project.description}</p>
+              <dt className="font-mono-label text-muted-foreground">Client / organisation</dt>
+              <dd className="mt-2 leading-relaxed">{project.client}</dd>
             </div>
             <div>
-              <div className="font-mono-label text-muted-foreground">Role</div>
-              <p className="mt-2 text-base">{project.role}</p>
+              <dt className="font-mono-label text-muted-foreground">My responsibilities</dt>
+              <dd className="mt-2 leading-relaxed">{project.role}</dd>
             </div>
             <div>
-              <div className="font-mono-label text-muted-foreground">Tools</div>
-              <p className="mt-2 text-base">{project.tools}</p>
+              <dt className="font-mono-label text-muted-foreground">Year</dt>
+              <dd className="mt-2">{project.year}</dd>
             </div>
             <div>
-              <div className="font-mono-label text-muted-foreground">Live</div>
-              <a
-                href={project.website}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-block border-b border-foreground pb-0.5 text-base"
-              >
-                {project.websiteLabel} ↗
-              </a>
+              <dt className="font-mono-label text-muted-foreground">Live website</dt>
+              <dd className="mt-2">
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="editorial-link"
+                  aria-label={`Visit ${project.title} website (opens in a new tab)`}
+                >
+                  {project.websiteLabel} ↗
+                </a>
+              </dd>
             </div>
-          </div>
+          </dl>
         </section>
 
-        {/* Website preview */}
-        {preview ? (
-          <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-28">
-            <div className="font-mono-label mb-6 text-muted-foreground">Website preview — 01</div>
-            <ScrollingPreview
-              src={preview}
-              alt={`${project.title} website`}
-              href={project.website}
-              label={project.websiteLabel}
-              duration={12}
-            />
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Hover to explore the full page or open the live website.
+        <section className="mx-auto grid max-w-[1400px] gap-14 px-6 py-16 md:grid-cols-12 md:px-12 md:py-28">
+          <div className="md:col-span-7">
+            <p className="font-mono-label text-muted-foreground">The original challenge</p>
+            <h2 className="sr-only">The original challenge</h2>
+            <p className="mt-5 font-display text-3xl leading-tight md:text-5xl">
+              {project.challenge}
             </p>
-          </section>
-        ) : null}
+          </div>
+          <div className="md:col-span-4 md:col-start-9">
+            <p className="font-mono-label text-muted-foreground">Responsibilities</p>
+            <TextList items={project.responsibilities} />
+          </div>
+        </section>
 
-        {/* Project focus */}
-        <section className="border-t border-hairline">
-          <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
-              <div className="md:col-span-4">
-                <div className="font-mono-label text-muted-foreground">Project focus — 02</div>
-                <h2 className="mt-4 max-w-sm font-display text-3xl leading-tight md:text-5xl">
-                  Clarity first, with character intact.
-                </h2>
-              </div>
-              <ol className="grid gap-px border border-hairline bg-hairline md:col-span-8 md:grid-cols-2">
-                {project.focus.map((item, focusIndex) => (
-                  <li key={item} className="min-h-40 bg-background p-6 md:p-8">
-                    <span className="font-mono-label text-muted-foreground">
-                      {String(focusIndex + 1).padStart(2, "0")}
-                    </span>
-                    <p className="mt-8 max-w-sm text-base leading-relaxed">{item}</p>
-                  </li>
-                ))}
-              </ol>
+        <section className="border-y border-hairline">
+          <div className="mx-auto grid max-w-[1400px] gap-14 px-6 py-16 md:grid-cols-12 md:px-12 md:py-28">
+            <div className="md:col-span-5">
+              <p className="font-mono-label text-muted-foreground">Design approach</p>
+              <h2 className="mt-4 font-display text-4xl md:text-6xl">Clarity through structure.</h2>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {project.approach}
+              </p>
+            </div>
+            <div className="md:col-span-5 md:col-start-8">
+              <p className="font-mono-label text-muted-foreground">Important decisions</p>
+              <TextList items={project.decisions} />
             </div>
           </div>
         </section>
 
-        {/* Closing */}
+        <section className="mx-auto grid max-w-[1400px] gap-14 px-6 py-16 md:grid-cols-12 md:px-12 md:py-28">
+          <div className="md:col-span-6">
+            <p className="font-mono-label text-muted-foreground">
+              Website structure and functionality
+            </p>
+            <TextList items={project.structure} />
+          </div>
+          <div className="md:col-span-4 md:col-start-9">
+            <p className="font-mono-label text-muted-foreground">Technologies used</p>
+            <TextList items={project.technologies} />
+          </div>
+        </section>
+
+        <CaseStudyMedia
+          src={projectPreviews[project.slug]}
+          title={project.title}
+          alt={project.imageAlt}
+          website={project.website}
+          websiteLabel={project.websiteLabel}
+        />
+
         <section className="border-t border-hairline">
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-12 md:py-32">
-            <p className="max-w-3xl font-display text-3xl leading-tight md:text-5xl">
-              {project.closing}
+            <p className="font-mono-label text-muted-foreground">Final outcome</p>
+            <h2 className="sr-only">Final outcome</h2>
+            <p className="mt-5 max-w-4xl font-display text-3xl leading-tight md:text-5xl">
+              {project.outcome}
             </p>
+            <a
+              href={project.website}
+              target="_blank"
+              rel="noreferrer"
+              className="editorial-link mt-10 inline-flex min-h-11 items-center"
+              aria-label={`Visit ${project.title} website (opens in a new tab)`}
+            >
+              Visit Website ↗
+            </a>
           </div>
         </section>
+
+        <nav aria-label="Project pagination" className="border-y border-hairline">
+          <div className="mx-auto grid max-w-[1400px] md:grid-cols-2">
+            <Link
+              to="/projects/$slug"
+              params={{ slug: previous.slug }}
+              className="group px-6 py-10 md:border-r md:border-hairline md:px-12 md:py-14"
+            >
+              <span className="font-mono-label text-muted-foreground">← Previous Project</span>
+              <span className="mt-3 block font-display text-3xl md:text-4xl">{previous.title}</span>
+            </Link>
+            <Link
+              to="/projects/$slug"
+              params={{ slug: next.slug }}
+              className="group border-t border-hairline px-6 py-10 text-right md:border-t-0 md:px-12 md:py-14"
+            >
+              <span className="font-mono-label text-muted-foreground">Next Project →</span>
+              <span className="mt-3 block font-display text-3xl md:text-4xl">{next.title}</span>
+            </Link>
+          </div>
+        </nav>
       </main>
 
-      {/* Next */}
-      <section className="border-t border-hairline">
-        <Link to="/projects/$slug" params={{ slug: next.slug }} className="group block">
-          <div className="mx-auto flex max-w-[1400px] items-baseline justify-between px-6 py-10 md:px-12 md:py-14">
-            <div>
-              <div className="font-mono-label text-muted-foreground">Next — {next.number}</div>
-              <div className="mt-2 font-display text-3xl md:text-5xl">{next.title}</div>
-            </div>
-            <div className="font-mono-label transition-opacity group-hover:opacity-60">→</div>
-          </div>
+      <footer className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-6 px-6 py-10 md:px-12">
+        <Link to="/" hash="work" className="editorial-link font-mono-label">
+          ← Back to all projects
         </Link>
-      </section>
-
-      <footer className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-10 md:px-12">
-        <Link to="/" className="font-mono-label text-muted-foreground hover:text-foreground">
-          ← Back to Index
-        </Link>
-        <div className="font-mono-label text-muted-foreground">
+        <span className="font-mono-label text-muted-foreground">
           © {new Date().getFullYear()} Charis Panayides
-        </div>
+        </span>
       </footer>
     </div>
   );

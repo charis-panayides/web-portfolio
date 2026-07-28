@@ -17,14 +17,7 @@ type Props = {
  * screenshot from top to bottom. Respects prefers-reduced-motion and
  * disables the effect on touch / small screens.
  */
-export function ScrollingPreview({
-  src,
-  alt,
-  href,
-  label,
-  className,
-  duration = 9,
-}: Props) {
+export function ScrollingPreview({ src, alt, href, label, className, duration = 9 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
   const [enabled, setEnabled] = useState(false);
@@ -104,4 +97,3 @@ export function ScrollingPreview({
     </a>
   );
 }
-
