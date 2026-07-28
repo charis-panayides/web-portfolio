@@ -107,6 +107,7 @@ function ProjectPage() {
             <LaptopPreview
               src={asset("aktina.png")}
               alt="AKTINA Educational Center homepage shown inside a laptop"
+              url="https://aktina.com.cy/en/"
             />
           </section>
 
@@ -144,22 +145,11 @@ function ProjectPage() {
             </div>
             <div className="grid items-start gap-12 md:grid-cols-12">
               <div className="md:col-span-8">
-                <div className="browser-detail">
-                  <div className="browser-detail-bar">
-                    <span /><span /><span />
-                    <span className="ml-3 font-mono-label text-muted-foreground">
-                      aktina.com.cy / course
-                    </span>
-                  </div>
-                  <div className="browser-detail-viewport">
-                    <img
-                      src={asset("aktina-course.png")}
-                      alt="AKTINA Certified Ethical Hacker course page showing structured course information"
-                      className="w-full"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+                <LaptopPreview
+                  src={asset("aktina-course.png")}
+                  alt="AKTINA Microsoft Azure AI Fundamentals course page shown inside a laptop"
+                  url="https://aktina.com.cy/en/courses/ai-900-microsoft-azure-ai-fundamentals-official-course/"
+                />
               </div>
               <div className="space-y-8 md:col-span-3 md:col-start-10">
                 <div>
@@ -203,6 +193,7 @@ function ProjectPage() {
                 <PhonePreview
                   src={asset("aktina-mobile.png")}
                   alt="Mobile version of the AKTINA Educational Center homepage"
+                  url="https://aktina.com.cy/en/"
                 />
               </div>
             </div>
