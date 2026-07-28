@@ -132,7 +132,7 @@ body::after {
 
 .project-page--aktina {
   --project-accent-top: 192px;
-  --project-accent-left: calc(100% - 256px);
+  --project-accent-left: 1088px;
   --project-accent-color: rgb(215 90 43 / 0.2);
 }
 
@@ -144,13 +144,13 @@ body::after {
 
 .project-page--mia-fora {
   --project-accent-top: 256px;
-  --project-accent-left: calc(50% - 64px);
+  --project-accent-left: 704px;
   --project-accent-color: rgb(143 166 83 / 0.22);
 }
 
 .project-page--viiibe {
   --project-accent-top: 576px;
-  --project-accent-left: calc(100% - 384px);
+  --project-accent-left: 960px;
   --project-accent-color: rgb(20 20 18 / 0.16);
 }
 
@@ -487,10 +487,24 @@ body::before {
   }
 }
 
+@media (min-width: 641px) and (max-width: 1200px) {
+  .project-page--aktina {
+    --project-accent-left: 512px;
+  }
+
+  .project-page--mia-fora {
+    --project-accent-left: 384px;
+  }
+
+  .project-page--viiibe {
+    --project-accent-left: 576px;
+  }
+}
+
 @media (max-width: 640px) {
   .project-page--aktina {
     --project-accent-top: 192px;
-    --project-accent-left: calc(100% - 128px);
+    --project-accent-left: 192px;
   }
 
   .project-page--cy-omt {
@@ -505,7 +519,7 @@ body::before {
 
   .project-page--viiibe {
     --project-accent-top: 448px;
-    --project-accent-left: calc(100% - 64px);
+    --project-accent-left: 256px;
   }
 
   .phone-pair {
