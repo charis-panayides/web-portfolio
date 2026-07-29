@@ -85,26 +85,18 @@ function Index() {
             <span className="mx-2">—</span>
             {String(projects.length).padStart(2, "0")} Projects
           </span>
-          <span
-            aria-hidden="true"
-            className="h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2"
-            style={{ backgroundColor: "#ee2027" }}
-          />
-          <span
-            aria-hidden="true"
-            className="h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2"
-            style={{ backgroundColor: "#2f4570" }}
-          />
-          <span
-            aria-hidden="true"
-            className="h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2"
-            style={{ backgroundColor: "#c3d370" }}
-          />
-          <span
-            aria-hidden="true"
-            className="h-[7px] w-[7px] shrink-0 outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40 sm:h-2 sm:w-2"
-            style={{ backgroundColor: "#000000" }}
-          />
+          {projects.map((project) => (
+            <span
+              key={project.slug}
+              aria-hidden="true"
+              className={`h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2 ${
+                project.slug === "viiibe"
+                  ? "outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40"
+                  : ""
+              }`}
+              style={{ backgroundColor: project.accent }}
+            />
+          ))}
         </motion.div>
         <h1 className="relative z-10 font-editorial text-[10vw] leading-[0.95] tracking-tight md:text-[7vw]">
           {["Selected", null, "work."].map((line, i) =>
@@ -120,9 +112,9 @@ function Index() {
                   className="block italic"
                 >
                   web{" "}
-              <span className="inline-block bg-black px-[0.06em] text-white">
-                design
-              </span>
+                  <span className="inline-block bg-black px-[0.06em] text-white">
+                    design
+                  </span>
                 </motion.span>
               </span>
             ) : (
@@ -187,7 +179,16 @@ function Index() {
 
                 <div className="col-span-12 md:col-span-5">
                   <Link to="/projects/$slug" params={{ slug: p.slug }} className="block">
-                    <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
+                    <h2 className="flex items-baseline gap-3 font-display text-4xl leading-[1.05] md:gap-4 md:text-6xl">
+                      <span
+                        aria-hidden="true"
+                        className={`h-2 w-2 shrink-0 translate-y-[-0.12em] ${
+                          p.slug === "viiibe"
+                            ? "outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40"
+                            : ""
+                        }`}
+                        style={{ backgroundColor: p.accent }}
+                      />
                       <span className="relative inline-block">
                         {p.title}
                         <span className="absolute -bottom-1 left-0 h-px w-0 bg-foreground transition-all duration-700 ease-out group-hover:w-full" />

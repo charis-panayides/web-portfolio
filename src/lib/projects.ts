@@ -9,6 +9,7 @@ export type Project = {
   websiteLabel: string;
   tools: string;
   closing: string;
+  accent: string;
 };
 
 export const projects: Project[] = [
@@ -25,6 +26,7 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor Pro, LearnPress, ACF, CPT UI, TablePress",
     closing:
       "A structured and scalable educational platform that makes complex, interconnected information easier to explore and maintain.",
+    accent: "#d75a2b",
   },
   {
     slug: "cy-omt",
@@ -39,6 +41,7 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor, Figma, WPForms",
     closing:
       "A trustworthy home for a specialised clinical education program.",
+    accent: "#49769c",
   },
   {
     slug: "mia-fora",
@@ -53,6 +56,7 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor, Figma",
     closing:
       "A gentle, welcoming space online — as reassuring for parents as the school itself.",
+    accent: "#c3d370",
   },
   {
     slug: "viiibe",
@@ -67,6 +71,7 @@ export const projects: Project[] = [
     tools: "WordPress, Elementor, Figma",
     closing:
       "A quiet stage for architectural work — restraint, grid and generous whitespace.",
+    accent: "#000000",
   },
 ];
 
