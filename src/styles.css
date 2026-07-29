@@ -38,6 +38,10 @@
 
 :root {
   --radius: 0.25rem;
+  --project-aktina-color: rgb(215 90 43);
+  --project-cy-omt-color: rgb(73 126 166);
+  --project-mia-fora-color: rgb(143 166 83);
+  --project-viiibe-color: rgb(20 20 18);
   --background: oklch(0.985 0.002 90);
   --foreground: oklch(0.18 0.005 90);
   --card: oklch(0.985 0.002 90);
@@ -216,25 +220,25 @@ body::after {
 .project-page--aktina {
   --project-accent-top: 192px;
   --project-accent-left: 1088px;
-  --project-accent-color: rgb(215 90 43 / 0.2);
+  --project-accent-color: color-mix(in srgb, var(--project-aktina-color) 20%, transparent);
 }
 
 .project-page--cy-omt {
   --project-accent-top: 448px;
   --project-accent-left: 128px;
-  --project-accent-color: rgb(73 126 166 / 0.2);
+  --project-accent-color: color-mix(in srgb, var(--project-cy-omt-color) 20%, transparent);
 }
 
 .project-page--mia-fora {
   --project-accent-top: 256px;
   --project-accent-left: 704px;
-  --project-accent-color: rgb(143 166 83 / 0.22);
+  --project-accent-color: color-mix(in srgb, var(--project-mia-fora-color) 22%, transparent);
 }
 
 .project-page--viiibe {
   --project-accent-top: 576px;
   --project-accent-left: 960px;
-  --project-accent-color: rgb(20 20 18 / 0.16);
+  --project-accent-color: color-mix(in srgb, var(--project-viiibe-color) 16%, transparent);
 }
 
 /* Grain / visual noise overlay — fixed, subtle, non-interactive */

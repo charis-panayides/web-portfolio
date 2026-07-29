@@ -72,13 +72,40 @@ function Index() {
       </header>
 
       <section className="relative mx-auto min-h-[720px] max-w-[1400px] overflow-hidden px-6 pb-24 pt-16 md:min-h-[820px] md:px-12 md:pb-40 md:pt-32">
-        <p className="relative z-10 mb-8 font-mono-label text-muted-foreground">
-          <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">
-            Index
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 mb-8 flex items-center gap-[5px] whitespace-nowrap font-mono-label text-muted-foreground"
+        >
+          <span>
+            <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">
+              Index
+            </span>
+            <span className="mx-2">—</span>
+            {String(projects.length).padStart(2, "0")} Projects
           </span>
-          <span className="mx-2">—</span>
-          {String(projects.length).padStart(2, "0")} Projects
-        </p>
+          <span
+            aria-hidden="true"
+            className="h-[7px] w-[14px] shrink-0 sm:h-2 sm:w-4"
+            style={{ backgroundColor: "var(--project-aktina-color)" }}
+          />
+          <span
+            aria-hidden="true"
+            className="h-[7px] w-[14px] shrink-0 sm:h-2 sm:w-4"
+            style={{ backgroundColor: "var(--project-cy-omt-color)" }}
+          />
+          <span
+            aria-hidden="true"
+            className="h-[7px] w-[14px] shrink-0 sm:h-2 sm:w-4"
+            style={{ backgroundColor: "var(--project-mia-fora-color)" }}
+          />
+          <span
+            aria-hidden="true"
+            className="h-[7px] w-[14px] shrink-0 outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40 sm:h-2 sm:w-4"
+            style={{ backgroundColor: "var(--project-viiibe-color)" }}
+          />
+        </motion.div>
         <h1 className="relative z-10 font-editorial text-[10vw] leading-[0.95] tracking-tight md:text-[7vw]">
           {["Selected", null, "work."].map((line, i) =>
             line === null ? (
