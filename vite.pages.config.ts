@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: "/charis-editorial-showcase/",
+  base: "/web-portfolio/",
   plugins: [
     tsConfigPaths(),
     tailwindcss(),
