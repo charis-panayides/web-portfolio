@@ -15,12 +15,27 @@ export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
     const saved = window.localStorage.getItem(STORAGE_KEY);
     const initialTheme: Theme =
-      saved === "dark" || saved === "light" ? saved : "light";
+      saved === "dark" || saved === "light"
+        ? saved
+        : media.matches
+          ? "dark"
+          : "light";
 
     setTheme(initialTheme);
     setDocumentTheme(initialTheme);
+
+    const followSystemTheme = (event: MediaQueryListEvent) => {
+      if (window.localStorage.getItem(STORAGE_KEY)) return;
+      const nextTheme: Theme = event.matches ? "dark" : "light";
+      setTheme(nextTheme);
+      setDocumentTheme(nextTheme);
+    };
+
+    media.addEventListener("change", followSystemTheme);
+    return () => media.removeEventListener("change", followSystemTheme);
   }, []);
 
   const toggleTheme = () => {

@@ -18,7 +18,7 @@ const themeBootScript = `
       var saved = localStorage.getItem("charis-portfolio-theme");
       var theme = saved === "dark" || saved === "light"
         ? saved
-        : "light";
+        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       document.documentElement.classList.toggle("dark", theme === "dark");
       document.documentElement.dataset.theme = theme;
       document.documentElement.style.colorScheme = theme;
