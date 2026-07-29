@@ -6,6 +6,7 @@ import {
   PhonePreview,
   PhoneVideoPreview,
 } from "@/components/DevicePreview";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -60,13 +61,16 @@ function ProjectPage() {
     <div
       className={`project-page project-page--${project.slug} relative z-10 min-h-screen text-foreground`}
     >
-      <header className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-8 pr-20 md:px-12 md:py-10 md:pr-24">
+      <header className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-8 md:px-12 md:py-10">
         <Link to="/" className="font-display text-xl md:text-2xl">
           Charis Panayides
         </Link>
-        <Link to="/" className="font-mono-label text-muted-foreground hover:text-foreground">
-          ← Index
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link to="/" className="font-mono-label text-muted-foreground hover:text-foreground">
+            ← Index
+          </Link>
+          <ThemeToggle />
+        </div>
       </header>
 
       {/* Title block */}

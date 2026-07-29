@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { ScrollingPreview } from "@/components/ScrollingPreview";
 import { VideoPreview } from "@/components/VideoPreview";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const previewAssets: Record<string, string> = {
   aktina: `${import.meta.env.BASE_URL}projects/aktina.png`,
@@ -66,6 +67,7 @@ function Index() {
             </span>
             <span className="tabular-nums">Nicosia {time || "—"}</span>
           </span>
+          <ThemeToggle />
         </div>
       </header>
 
@@ -80,7 +82,10 @@ function Index() {
         <h1 className="relative z-10 font-editorial text-[10vw] leading-[0.95] tracking-tight md:text-[7vw]">
           {["Selected", null, "work."].map((line, i) =>
             line === null ? (
-              <span key="mid" className="block overflow-hidden">
+              <span
+                key="mid"
+                className="-mb-[0.12em] block overflow-hidden pb-[0.12em]"
+              >
                 <motion.span
                   initial={{ y: "110%" }}
                   animate={{ y: 0 }}
