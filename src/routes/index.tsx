@@ -173,22 +173,22 @@ function Index() {
           >
             <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
               <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
-                <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
-                  {p.number}
+                <div className="col-span-12 flex items-center gap-2 font-mono-label text-muted-foreground md:col-span-1">
+                  <span
+                    aria-hidden="true"
+                    className={`h-2 w-2 shrink-0 ${
+                      p.slug === "viiibe"
+                        ? "outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40"
+                        : ""
+                    }`}
+                    style={{ backgroundColor: p.accent }}
+                  />
+                  <span>{p.number}</span>
                 </div>
 
                 <div className="col-span-12 md:col-span-5">
                   <Link to="/projects/$slug" params={{ slug: p.slug }} className="block">
-                    <h2 className="flex items-baseline gap-3 font-display text-4xl leading-[1.05] md:gap-4 md:text-6xl">
-                      <span
-                        aria-hidden="true"
-                        className={`h-2 w-2 shrink-0 translate-y-[-0.12em] ${
-                          p.slug === "viiibe"
-                            ? "outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40"
-                            : ""
-                        }`}
-                        style={{ backgroundColor: p.accent }}
-                      />
+                    <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
                       <span className="relative inline-block">
                         {p.title}
                         <span className="absolute -bottom-1 left-0 h-px w-0 bg-foreground transition-all duration-700 ease-out group-hover:w-full" />
