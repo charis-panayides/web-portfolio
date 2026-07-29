@@ -570,6 +570,27 @@ body::before {
   border-bottom: 1px solid var(--color-hairline);
 }
 
+.project-action-label {
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.project-action-arrow {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.project-action:hover .project-action-label,
+.project-action:focus-visible .project-action-label {
+  text-decoration-line: underline;
+}
+
+.project-action:hover .project-action-arrow,
+.project-action:focus-visible .project-action-arrow {
+  transform: rotate(-45deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle,
   .theme-toggle svg {
@@ -594,6 +615,10 @@ body::before {
 @media (hover: none) {
   .device-hint {
     display: none;
+  }
+
+  .project-action-arrow {
+    transition: none;
   }
 }
 

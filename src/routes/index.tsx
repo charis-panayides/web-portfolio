@@ -189,10 +189,7 @@ function Index() {
                 <div className="col-span-12 md:col-span-5">
                   <Link to="/projects/$slug" params={{ slug: p.slug }} className="block">
                     <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
-                      <span className="relative inline-block">
-                        {p.title}
-                        <span className="absolute -bottom-1 left-0 h-px w-0 bg-foreground transition-all duration-700 ease-out group-hover:w-full" />
-                      </span>
+                      {p.title}
                     </h2>
                     <p className="font-editorial italic mt-4 max-w-md text-base text-muted-foreground md:text-lg">
                       {p.description}
@@ -237,21 +234,20 @@ function Index() {
                       href={p.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex min-h-11 items-center gap-2 underline-offset-4 transition-colors hover:text-muted-foreground hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
+                      className="project-action inline-flex min-h-11 items-center gap-2 transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
                     >
-                      View Website
-                      <span aria-hidden="true">↗</span>
+                      <span className="project-action-label">View Website</span>
+                      <span aria-hidden="true" className="project-action-arrow">
+                        →
+                      </span>
                     </a>
                     <Link
                       to="/projects/$slug"
                       params={{ slug: p.slug }}
-                      className="inline-flex min-h-11 items-center gap-2 border-b border-foreground transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
+                      className="project-action inline-flex min-h-11 items-center gap-2 transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
                     >
-                      View Project
-                      <span
-                        aria-hidden="true"
-                        className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-                      >
+                      <span className="project-action-label">View Project</span>
+                      <span aria-hidden="true" className="project-action-arrow">
                         →
                       </span>
                     </Link>
