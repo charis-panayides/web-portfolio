@@ -232,7 +232,7 @@ function Index() {
                     </Link>
                   )}
 
-                  <div className="mt-6 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-hairline pt-4 text-sm">
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-x-8 gap-y-2 text-sm">
                     <a
                       href={p.website}
                       target="_blank"
