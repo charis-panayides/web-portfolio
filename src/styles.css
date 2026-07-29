@@ -38,10 +38,6 @@
 
 :root {
   --radius: 0.25rem;
-  --project-aktina-color: rgb(215 90 43);
-  --project-cy-omt-color: rgb(73 126 166);
-  --project-mia-fora-color: rgb(143 166 83);
-  --project-viiibe-color: rgb(20 20 18);
   --background: oklch(0.985 0.002 90);
   --foreground: oklch(0.18 0.005 90);
   --card: oklch(0.985 0.002 90);
@@ -220,25 +216,25 @@ body::after {
 .project-page--aktina {
   --project-accent-top: 192px;
   --project-accent-left: 1088px;
-  --project-accent-color: color-mix(in srgb, var(--project-aktina-color) 20%, transparent);
+  --project-accent-color: rgb(215 90 43 / 0.2);
 }
 
 .project-page--cy-omt {
   --project-accent-top: 448px;
   --project-accent-left: 128px;
-  --project-accent-color: color-mix(in srgb, var(--project-cy-omt-color) 20%, transparent);
+  --project-accent-color: rgb(73 126 166 / 0.2);
 }
 
 .project-page--mia-fora {
   --project-accent-top: 256px;
   --project-accent-left: 704px;
-  --project-accent-color: color-mix(in srgb, var(--project-mia-fora-color) 22%, transparent);
+  --project-accent-color: rgb(143 166 83 / 0.22);
 }
 
 .project-page--viiibe {
   --project-accent-top: 576px;
   --project-accent-left: 960px;
-  --project-accent-color: color-mix(in srgb, var(--project-viiibe-color) 16%, transparent);
+  --project-accent-color: rgb(20 20 18 / 0.16);
 }
 
 /* Grain / visual noise overlay — fixed, subtle, non-interactive */
@@ -570,27 +566,6 @@ body::before {
   border-bottom: 1px solid var(--color-hairline);
 }
 
-.project-action-label {
-  text-underline-offset: 0.3em;
-  text-decoration-thickness: 1px;
-}
-
-.project-action-arrow {
-  display: inline-block;
-  transform-origin: center;
-  transition: transform 180ms ease;
-}
-
-.project-action:hover .project-action-label,
-.project-action:focus-visible .project-action-label {
-  text-decoration-line: underline;
-}
-
-.project-action:hover .project-action-arrow,
-.project-action:focus-visible .project-action-arrow {
-  transform: rotate(-45deg);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle,
   .theme-toggle svg {
@@ -615,10 +590,6 @@ body::before {
 @media (hover: none) {
   .device-hint {
     display: none;
-  }
-
-  .project-action-arrow {
-    transition: none;
   }
 }
 

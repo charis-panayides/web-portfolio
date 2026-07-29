@@ -53,7 +53,7 @@ function Index() {
   const time = useCyprusTime();
 
   return (
-    <div id="top" className="relative z-10 min-h-screen text-foreground">
+    <div className="relative z-10 min-h-screen text-foreground">
       <header className="mx-auto flex max-w-[1400px] items-baseline justify-between px-6 py-8 md:px-12 md:py-10">
         <Link to="/" className="font-display text-xl md:text-2xl">
           Charis Panayides
@@ -72,49 +72,24 @@ function Index() {
       </header>
 
       <section className="relative mx-auto min-h-[720px] max-w-[1400px] overflow-hidden px-6 pb-24 pt-16 md:min-h-[820px] md:px-12 md:pb-40 md:pt-32">
-        <motion.div
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 mb-8 flex items-center gap-[5px] whitespace-nowrap font-mono-label text-muted-foreground"
-        >
-          <span>
-            <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">
-              Index
-            </span>
-            <span className="mx-2">—</span>
-            {String(projects.length).padStart(2, "0")} Projects
+        <p className="relative z-10 mb-8 font-mono-label text-muted-foreground">
+          <span className="font-editorial not-italic normal-case tracking-normal text-sm text-foreground/70">
+            Index
           </span>
-          {projects.map((project) => (
-            <span
-              key={project.slug}
-              aria-hidden="true"
-              className={`h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2 ${
-                project.slug === "viiibe"
-                  ? "outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40"
-                  : ""
-              }`}
-              style={{ backgroundColor: project.accent }}
-            />
-          ))}
-        </motion.div>
+          <span className="mx-2">—</span>
+          {String(projects.length).padStart(2, "0")} Projects
+        </p>
         <h1 className="relative z-10 font-editorial text-[10vw] leading-[0.95] tracking-tight md:text-[7vw]">
           {["Selected", null, "work."].map((line, i) =>
             line === null ? (
-              <span
-                key="mid"
-                className="-mb-[0.12em] block overflow-hidden pb-[0.12em]"
-              >
+              <span key="mid" className="block overflow-hidden">
                 <motion.span
                   initial={{ y: "110%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                   className="block italic"
                 >
-                  web{" "}
-                  <span className="inline-block bg-black px-[0.06em] text-white dark:bg-[#ebe8df] dark:text-[#171715]">
-                    design
-                  </span>
+                  web design
                 </motion.span>
               </span>
             ) : (
@@ -142,8 +117,8 @@ function Index() {
           transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 mt-16 max-w-xl font-display text-xl italic leading-relaxed text-foreground/75 md:absolute md:bottom-24 md:left-12 md:mt-0 md:text-2xl"
         >
-          I design and build clear, characterful websites for education, culture and independent
-          organisations.
+          I design and build clear, characterful WordPress websites for education, culture and
+          independent organisations.
         </motion.p>
 
         <motion.div
@@ -173,23 +148,17 @@ function Index() {
           >
             <div className="mx-auto max-w-[1400px] px-6 py-10 md:px-12 md:py-16">
               <div className="grid grid-cols-12 items-start gap-6 md:gap-8">
-                <div className="col-span-12 flex items-center gap-2 font-mono-label text-muted-foreground md:col-span-1">
-                  <span
-                    aria-hidden="true"
-                    className={`h-2 w-2 shrink-0 ${
-                      p.slug === "viiibe"
-                        ? "outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40"
-                        : ""
-                    }`}
-                    style={{ backgroundColor: p.accent }}
-                  />
-                  <span>{p.number}</span>
+                <div className="col-span-12 md:col-span-1 font-mono-label text-muted-foreground">
+                  {p.number}
                 </div>
 
                 <div className="col-span-12 md:col-span-5">
                   <Link to="/projects/$slug" params={{ slug: p.slug }} className="block">
                     <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
-                      {p.title}
+                      <span className="relative inline-block">
+                        {p.title}
+                        <span className="absolute -bottom-1 left-0 h-px w-0 bg-foreground transition-all duration-700 ease-out group-hover:w-full" />
+                      </span>
                     </h2>
                     <p className="font-editorial italic mt-4 max-w-md text-base text-muted-foreground md:text-lg">
                       {p.description}
@@ -229,28 +198,35 @@ function Index() {
                     </Link>
                   )}
 
-                  <div className="mt-2 flex flex-wrap items-center justify-between gap-x-8 gap-y-2 text-sm">
-                    <a
-                      href={p.website}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="project-action inline-flex min-h-11 items-center gap-2 transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
-                    >
-                      <span className="project-action-label">View Website</span>
-                      <span aria-hidden="true" className="project-action-arrow">
-                        →
-                      </span>
-                    </a>
-                    <Link
-                      to="/projects/$slug"
-                      params={{ slug: p.slug }}
-                      className="project-action inline-flex min-h-11 items-center gap-2 transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
-                    >
-                      <span className="project-action-label">View Project</span>
-                      <span aria-hidden="true" className="project-action-arrow">
-                        →
-                      </span>
-                    </Link>
+                  <div className="mt-6 grid grid-cols-2 gap-6 text-sm md:grid-cols-4">
+                    <div>
+                      <div className="font-mono-label text-muted-foreground">Role</div>
+                      <div className="mt-1">{p.role.split(" / ")[0]}</div>
+                    </div>
+                    <div>
+                      <div className="font-mono-label text-muted-foreground">Year</div>
+                      <div className="mt-1">{p.year}</div>
+                    </div>
+                    <div className="col-span-2 flex items-end justify-end gap-6 md:col-span-2">
+                      <Link
+                        to="/projects/$slug"
+                        params={{ slug: p.slug }}
+                        className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm"
+                      >
+                        View Project
+                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">
+                          →
+                        </span>
+                      </Link>
+                      <a
+                        href={p.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                      >
+                        Visit Website ↗
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -259,50 +235,15 @@ function Index() {
         ))}
       </main>
 
-      <footer id="contact" className="border-t border-hairline">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-8">
-              <div className="font-mono-label text-muted-foreground">Contact</div>
-              <h2 className="mt-3 max-w-3xl font-display text-4xl leading-tight md:text-6xl">
-                Have something meaningful to build?
-              </h2>
-              <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-                Available for freelance projects and selected opportunities.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start gap-4 md:col-span-4 md:items-end md:justify-end">
-              <a
-                href="mailto:harris_panayides@outlook.com"
-                className="border-b border-foreground pb-1 text-lg transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-              >
-                Email me ↗
-              </a>
-              <a
-                href="https://www.linkedin.com/in/charis-panayides-a57ba8254/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn profile (opens in a new tab)"
-                className="border-b border-foreground pb-1 text-lg transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-              >
-                LinkedIn ↗
-              </a>
-              <p className="pt-2 font-mono-label text-muted-foreground">
-                Cyprus · Available remotely
-              </p>
-            </div>
+      <footer className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
+        <div>
+          <div className="font-mono-label text-muted-foreground">Contact</div>
+          <div className="mt-2 font-display text-3xl md:text-5xl">
+            Let&apos;s make something quiet and useful.
           </div>
-
-          <div className="mt-16 flex flex-col gap-4 border-t border-hairline pt-6 font-mono-label text-muted-foreground sm:flex-row sm:items-center sm:justify-between md:mt-24">
-            <span>© {new Date().getFullYear()} Charis Panayides</span>
-            <a
-              href="#top"
-              className="transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
-            >
-              Back to top ↑
-            </a>
-          </div>
+        </div>
+        <div className="font-mono-label text-muted-foreground">
+          © {new Date().getFullYear()} Charis Panayides
         </div>
       </footer>
     </div>
