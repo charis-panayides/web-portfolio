@@ -7,6 +7,7 @@ import {
   PhoneVideoPreview,
 } from "@/components/DevicePreview";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -59,6 +60,7 @@ function ProjectPage() {
 
   return (
     <div
+      id="top"
       className={`project-page project-page--${project.slug} relative z-10 min-h-screen text-foreground`}
     >
       <header className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-8 md:px-12 md:py-10">
@@ -836,32 +838,28 @@ function ProjectPage() {
         <Link
           to="/projects/$slug"
           params={{ slug: next.slug }}
-          className="group block"
+          className="group block transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-foreground"
         >
-          <div className="mx-auto flex max-w-[1400px] items-baseline justify-between px-6 py-10 md:px-12 md:py-14">
-            <div>
+          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 py-16 md:grid-cols-12 md:items-end md:px-12 md:py-24">
+            <div className="md:col-span-10">
               <div className="font-mono-label text-muted-foreground">
-                Next — {next.number}
+                Next project — {next.number}
               </div>
-              <div className="mt-2 font-display text-3xl md:text-5xl">
+              <div className="mt-4 font-display text-5xl leading-none md:text-7xl">
                 {next.title}
               </div>
             </div>
-            <div className="font-mono-label transition-opacity group-hover:opacity-60">
+            <div
+              aria-hidden="true"
+              className="project-action-arrow text-4xl transition-transform duration-200 group-hover:-rotate-45 md:col-span-2 md:justify-self-end md:text-6xl"
+            >
               →
             </div>
           </div>
         </Link>
       </section>
 
-      <footer className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-10 md:px-12">
-        <Link to="/" className="font-mono-label text-muted-foreground hover:text-foreground">
-          ← Back to Index
-        </Link>
-        <div className="font-mono-label text-muted-foreground">
-          © {new Date().getFullYear()} Charis Panayides
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
