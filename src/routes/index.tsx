@@ -87,23 +87,23 @@ function Index() {
           </span>
           <span
             aria-hidden="true"
-            className="h-[7px] w-[14px] shrink-0 sm:h-2 sm:w-4"
-            style={{ backgroundColor: "var(--project-aktina-color)" }}
+            className="h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2"
+            style={{ backgroundColor: "#ee2027" }}
           />
           <span
             aria-hidden="true"
-            className="h-[7px] w-[14px] shrink-0 sm:h-2 sm:w-4"
-            style={{ backgroundColor: "var(--project-cy-omt-color)" }}
+            className="h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2"
+            style={{ backgroundColor: "#2f4570" }}
           />
           <span
             aria-hidden="true"
-            className="h-[7px] w-[14px] shrink-0 sm:h-2 sm:w-4"
-            style={{ backgroundColor: "var(--project-mia-fora-color)" }}
+            className="h-[7px] w-[7px] shrink-0 sm:h-2 sm:w-2"
+            style={{ backgroundColor: "#c3d370" }}
           />
           <span
             aria-hidden="true"
-            className="h-[7px] w-[14px] shrink-0 outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40 sm:h-2 sm:w-4"
-            style={{ backgroundColor: "var(--project-viiibe-color)" }}
+            className="h-[7px] w-[7px] shrink-0 outline outline-0 outline-offset-0 dark:outline-1 dark:outline-white/40 sm:h-2 sm:w-2"
+            style={{ backgroundColor: "#000000" }}
           />
         </motion.div>
         <h1 className="relative z-10 font-editorial text-[10vw] leading-[0.95] tracking-tight md:text-[7vw]">
