@@ -232,35 +232,29 @@ function Index() {
                     </Link>
                   )}
 
-                  <div className="mt-6 grid grid-cols-2 gap-6 text-sm md:grid-cols-4">
-                    <div>
-                      <div className="font-mono-label text-muted-foreground">Role</div>
-                      <div className="mt-1">{p.role.split(" / ")[0]}</div>
-                    </div>
-                    <div>
-                      <div className="font-mono-label text-muted-foreground">Year</div>
-                      <div className="mt-1">{p.year}</div>
-                    </div>
-                    <div className="col-span-2 flex items-end justify-end gap-6 md:col-span-2">
-                      <Link
-                        to="/projects/$slug"
-                        params={{ slug: p.slug }}
-                        className="inline-flex items-center gap-2 border-b border-foreground pb-0.5 text-sm"
+                  <div className="mt-6 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-hairline pt-4 text-sm">
+                    <a
+                      href={p.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex min-h-11 items-center gap-2 underline-offset-4 transition-colors hover:text-muted-foreground hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
+                    >
+                      View Website
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                    <Link
+                      to="/projects/$slug"
+                      params={{ slug: p.slug }}
+                      className="inline-flex min-h-11 items-center gap-2 border-b border-foreground transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-offset-4"
+                    >
+                      View Project
+                      <span
+                        aria-hidden="true"
+                        className="inline-block transition-transform duration-300 group-hover:translate-x-1"
                       >
-                        View Project
-                        <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">
-                          →
-                        </span>
-                      </Link>
-                      <a
-                        href={p.website}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-                      >
-                        Visit Website ↗
-                      </a>
-                    </div>
+                        →
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </div>
