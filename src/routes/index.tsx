@@ -53,7 +53,7 @@ function Index() {
   const time = useCyprusTime();
 
   return (
-    <div className="relative z-10 min-h-screen text-foreground">
+    <div id="top" className="relative z-10 min-h-screen text-foreground">
       <header className="mx-auto flex max-w-[1400px] items-baseline justify-between px-6 py-8 md:px-12 md:py-10">
         <Link to="/" className="font-display text-xl md:text-2xl">
           Charis Panayides
@@ -142,8 +142,8 @@ function Index() {
           transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 mt-16 max-w-xl font-display text-xl italic leading-relaxed text-foreground/75 md:absolute md:bottom-24 md:left-12 md:mt-0 md:text-2xl"
         >
-          I design and build clear, characterful WordPress websites for education, culture and
-          independent organisations.
+          I design and build clear, characterful websites for education, culture and independent
+          organisations.
         </motion.p>
 
         <motion.div
@@ -269,15 +269,50 @@ function Index() {
         ))}
       </main>
 
-      <footer className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-12 md:py-24">
-        <div>
-          <div className="font-mono-label text-muted-foreground">Contact</div>
-          <div className="mt-2 font-display text-3xl md:text-5xl">
-            Let&apos;s make something quiet and useful.
+      <footer id="contact" className="border-t border-hairline">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-8">
+              <div className="font-mono-label text-muted-foreground">Contact</div>
+              <h2 className="mt-3 max-w-3xl font-display text-4xl leading-tight md:text-6xl">
+                Have something meaningful to build?
+              </h2>
+              <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+                Available for freelance projects and selected opportunities.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start gap-4 md:col-span-4 md:items-end md:justify-end">
+              <a
+                href="mailto:harris_panayides@outlook.com"
+                className="border-b border-foreground pb-1 text-lg transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+              >
+                Email me ↗
+              </a>
+              <a
+                href="https://www.linkedin.com/in/charis-panayides-a57ba8254/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn profile (opens in a new tab)"
+                className="border-b border-foreground pb-1 text-lg transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+              >
+                LinkedIn ↗
+              </a>
+              <p className="pt-2 font-mono-label text-muted-foreground">
+                Cyprus · Available remotely
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="font-mono-label text-muted-foreground">
-          © {new Date().getFullYear()} Charis Panayides
+
+          <div className="mt-16 flex flex-col gap-4 border-t border-hairline pt-6 font-mono-label text-muted-foreground sm:flex-row sm:items-center sm:justify-between md:mt-24">
+            <span>© {new Date().getFullYear()} Charis Panayides</span>
+            <a
+              href="#top"
+              className="transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+            >
+              Back to top ↑
+            </a>
+          </div>
         </div>
       </footer>
     </div>
