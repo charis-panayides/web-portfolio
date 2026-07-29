@@ -119,7 +119,10 @@ function Index() {
                   transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                   className="block italic"
                 >
-                  web design
+                  web{" "}
+              <span className="inline-block bg-black px-[0.06em] text-white">
+                design
+              </span>
                 </motion.span>
               </span>
             ) : (
