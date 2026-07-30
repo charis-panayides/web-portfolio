@@ -113,7 +113,7 @@ function Index() {
                   className="block italic"
                 >
                   web{" "}
-                  <span className="inline-block bg-black px-[0.06em] text-white dark:bg-[#ebe8df] dark:text-[#171715]">
+                  <span className="inline-block rounded-[0.08em] bg-black px-[0.06em] text-white dark:bg-[#ebe8df] dark:text-[#171715]">
                     design
                   </span>
                 </motion.span>
