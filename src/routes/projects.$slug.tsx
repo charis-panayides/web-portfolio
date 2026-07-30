@@ -838,7 +838,7 @@ function ProjectPage() {
         <Link
           to="/projects/$slug"
           params={{ slug: next.slug }}
-          className="group block transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-foreground"
+          className="project-action group block transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-foreground"
         >
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 py-16 md:grid-cols-12 md:items-end md:px-12 md:py-24">
             <div className="md:col-span-10">
@@ -851,7 +851,7 @@ function ProjectPage() {
             </div>
             <div
               aria-hidden="true"
-              className="project-action-arrow text-4xl transition-transform duration-200 group-hover:-rotate-45 md:col-span-2 md:justify-self-end md:text-6xl"
+              className="project-action-arrow text-sm text-muted-foreground transition-colors group-hover:text-foreground md:col-span-2 md:justify-self-end"
             >
               →
             </div>
