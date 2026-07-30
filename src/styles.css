@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-serif: "Marcellus", Georgia, serif;
-  --font-editorial: "Marcellus", Georgia, serif;
+  --font-serif: "Crimson Pro", Georgia, serif;
+  --font-editorial: "Crimson Pro", Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
 
@@ -172,13 +172,15 @@
 
 @utility font-display {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 200;
+  font-optical-sizing: auto;
   letter-spacing: -0.025em;
 }
 
 @utility font-editorial {
   font-family: var(--font-editorial);
-  font-weight: 400;
+  font-weight: 200;
+  font-optical-sizing: auto;
   letter-spacing: -0.025em;
 }
 
@@ -691,3 +693,4 @@ body::before {
     translate: 0 1.25rem;
   }
 }
+
