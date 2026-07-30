@@ -34,7 +34,7 @@ export const projects: Project[] = [
     title: "CY-OMT",
     description:
       "Website for an orthopaedic manual therapy education program in Cyprus — clinical, precise and quietly authoritative.",
-    role: "Web Design / WordPress Development / SEO / Contact Forms",
+    role: "Web Design / UX/UI / WordPress Development / SEO / Contact Forms",
     year: "2024",
     website: "https://cy-omt.com",
     websiteLabel: "cy-omt.com",
@@ -49,11 +49,11 @@ export const projects: Project[] = [
     title: "Μια φορά κι᾽ έναν καιρό",
     description:
       "Warm kindergarten website with playful visuals and clear parent-focused information architecture.",
-    role: "Web Design / WordPress Development / Responsive Design",
+    role: "Web Design / Photography / WordPress Development / Responsive Design",
     year: "2023",
     website: "https://miaforakienankairo.com.cy",
     websiteLabel: "miaforakienankairo.com.cy",
-    tools: "WordPress, Elementor, Figma",
+    tools: "WordPress, Elementor, Revolution Slider, Figma",
     closing:
       "A gentle, welcoming space online — as reassuring for parents as the school itself.",
     accent: "#c3d370",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     year: "2023",
     website: "https://viiibearchitects.com",
     websiteLabel: "viiibearchitects.com",
-    tools: "WordPress, Elementor, Figma",
+    tools: "WordPress, Elementor Pro, Figma",
     closing:
       "A quiet stage for architectural work — restraint, grid and generous whitespace.",
     accent: "#000000",
