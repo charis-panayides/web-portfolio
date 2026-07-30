@@ -143,8 +143,7 @@ function Index() {
           transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 mt-16 max-w-xl font-display text-xl italic leading-relaxed text-foreground/75 md:absolute md:bottom-24 md:left-12 md:mt-0 md:text-2xl"
         >
-          I design and build clear, characterful websites for education, culture and independent
-          organisations.
+          I design and build clear, characterful websites for people and organisations with something meaningful to share.
         </motion.p>
 
         <motion.div
