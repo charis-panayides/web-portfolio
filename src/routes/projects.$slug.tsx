@@ -840,20 +840,20 @@ function ProjectPage() {
           params={{ slug: next.slug }}
           className="project-action group block transition-colors hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-foreground"
         >
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 py-16 md:grid-cols-12 md:items-end md:px-12 md:py-24">
-            <div className="md:col-span-10">
+          <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-12 md:py-24">
+            <div className="flex items-center gap-4">
               <div className="font-mono-label text-muted-foreground">
                 Next project — {next.number}
               </div>
-              <div className="mt-4 font-display text-5xl leading-none md:text-7xl">
-                {next.title}
+              <div
+                aria-hidden="true"
+                className="project-action-arrow text-xl leading-none text-foreground md:text-2xl"
+              >
+                →
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              className="project-action-arrow text-sm text-muted-foreground transition-colors group-hover:text-foreground md:col-span-2 md:justify-self-end"
-            >
-              →
+            <div className="mt-4 font-display text-5xl leading-none md:text-7xl">
+              {next.title}
             </div>
           </div>
         </Link>
