@@ -20,6 +20,13 @@ export function SiteFooter() {
             >
               Email me ↗
             </a>
+           <a
+              href="tel:+35797803201"
+              aria-label="Call Charis Panayides at +357 97803201"
+              className="border-b border-foreground pb-1 text-lg transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4"
+            >
+              Call me ↗
+            </a>
             <a
               href="https://www.linkedin.com/in/charis-panayides-a57ba8254/"
               target="_blank"
